@@ -1,3 +1,7 @@
+@import '../../Sass/_Variables.scss'; 
+
+
+
 .App {
   text-align: center;
 }
@@ -9,12 +13,13 @@
 }
 
 .App-header {
+  @include displayFlex(center ,center,null, null);
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
