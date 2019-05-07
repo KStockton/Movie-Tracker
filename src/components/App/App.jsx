@@ -1,13 +1,13 @@
 import React from "react";
-import Main from '../Components/Main/Main.jsx'
+import Main from '../Main/Main';
 
-function App () {
+const App = () => {
   return (
     <div className="App" >
       <Main />
     </div>
     )
 
-
+  }
 
 export default App;
