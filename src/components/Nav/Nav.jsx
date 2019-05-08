@@ -11,17 +11,15 @@ class Nav extends Component {
     }
     
   render() {
-      const {handleClick} = this.props;
+      const {handleFilterClick} = this.props;
     return (
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><button name="tv" onClick ={(e) => handleClick(e.target.name)}>TV Shows</button></li>
-          <li><button name="movie" onClick ={(e) => handleClick(e.target.name)}>Movies</button></li>
-          <li><button name="upcoming" onClick ={(e) => handleClick(e.target.name)}>Upcoming</button></li>
+          <li><button name="tv" onClick ={(e) => handleFilterClick(e.target.name)}>TV Shows</button></li>
+          <li><button name="movie" onClick ={(e) => handleFilterClick(e.target.name)}>Movies</button></li>
+          <li><button name="upcoming" onClick ={(e) => handleFilterClick(e.target.name)}>Upcoming</button></li>
           <li><button>My List</button></li>
-
-
         </ul>
         <ul>
           <li><input className="nav-search-btn" type="text"></input></li>

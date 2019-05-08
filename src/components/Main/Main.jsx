@@ -3,62 +3,45 @@ import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "../Home/Home";
-import Genre from "../Genre/Genre";
 import SearchResults from "../SearchResults/SearchResults";
-import { fetchData } from '../../Utility/Fetches/FetchData';
-import { cleanTopMovies } from '../../Utility/Cleaners/CleanTopMovies';
-import { cleanTVShows } from '../../Utility/Cleaners/CleanTVShows';
-import { APIkey } from '../../Utility/Config/Key'
+import { APIkey } from "../../Utility/Config/Key";
+import { getTopMovies } from "../../Utility/Helpers/GetTopMovies";
+import { getTopTVShows } from "../../Utility/Helpers/GetTopTVShows";
+import { connect } from "react-redux";
+import {addTopMovies} from "../../Actions/index";
 
 class Main extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       topMovies: [],
       currentPage: 0,
-      criteria : '',
-      genre : '',
-      topTVShows: [],
-    }
+      criteria: "",
+      genre: "",
+      topTVShows: []
+    };
   }
 
-componentDidMount(){
-  
-  const { currentPage, topMovies, topTVShows} = this.state
-  let incrementedPage = currentPage + 1;
-  this.setState({currentPage: incrementedPage}, () => {
+  async componentDidMount() {
+    const { currentPage, topMovies, topTVShows } = this.state;
+    let incrementedPage = currentPage + 1;
+    let movies = await getTopMovies(APIkey, incrementedPage);
+    this.props.addTopMovies(movies)
+    // selects a random number - can be used to pick from either array above and display banner
+    // const randomNumber = Math.floor(Math.random() * 20) + 1;
+  }
 
-  let url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${APIkey}&language=en-US&page=${incrementedPage}`
-  fetchData(url)
-    .then(filmdata => cleanTopMovies(filmdata.results))
-    .then(topMovies => this.setState({topMovies}))
-  })
-
-  let url = `https://api.themoviedb.org/3/tv/top_rated?api_key=${APIkey}&language=en-US&page=${incrementedPage}`
-  fetchData(url)
-  .then(tvData => cleanTVShows(tvData.results))
-  .then(topTVShows => this.setState({topTVShows}, () => {
-  }))
-  
-  // selects a random number - can be used to pick from either array above and display banner
-  const randomNumber = Math.floor(Math.random() * 20) + 1
-
-}
-
-
-    handleClick = (criteria) => {
-        this.setState({ criteria})
-    }
-    
+  handleFilterClick = criteria => {
+    this.setState({ criteria });
+  };
   render() {
    
     console.log(this.state)
     return (
       <Router>
         <main>
-          <Nav handleClick = {this.handleClick}/>
+          <Nav handleFilterClick={this.handleFilterClick} />
           <Route path="/" exact component={Home} />
-          <Route path="/genre" component={Genre} />
           <Route path="/search-results" component={SearchResults} />
           <Footer />
         </main>
@@ -67,4 +50,14 @@ componentDidMount(){
   }
 }
 
-export default Main;
+const mapStateToProps = state => ({
+  topMovies : state.topMovies
+});
+const mapDispatchToProps = dispatch => ({
+  addTopMovies : movies => dispatch(addTopMovies(movies))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Main);
