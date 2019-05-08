@@ -7,7 +7,8 @@ const cleanTopTVShows = topTV => {
       title: shows.original_name,
       image: shows.backdrop_path,
       overview: shows.overview,
-      posterpath: shows.poster_path
+      posterpath: shows.poster_path,
+      popularity: shows.vote_average
     };
   });
   return cleanShows;

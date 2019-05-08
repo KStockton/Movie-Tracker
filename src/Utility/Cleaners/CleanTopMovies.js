@@ -9,7 +9,8 @@ let films = topMovies.results.map(topMovie => {
     title: topMovie.title,
     image: topMovie.backdrop_path,
     overview: topMovie.overview,
-    posterpath: topMovie.poster_path
+    posterpath: topMovie.poster_path,
+    popularity: topMovie.vote_average
   }
 })
 return films
