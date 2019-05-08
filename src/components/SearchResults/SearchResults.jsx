@@ -2,9 +2,10 @@ import React from 'react'
 
 const SearchResults = () => {
   return (
-    <div>
+    <section className="search-results-container">
+        <h1>search results</h1>
       
-    </div>
+    </section>
   )
 }
 export default SearchResults
