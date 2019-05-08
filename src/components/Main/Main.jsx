@@ -27,7 +27,6 @@ class Main extends Component {
     let incrementedPage = currentPage + 1;
     let movies = await getTopMovies(APIkey, incrementedPage);
     this.props.addTopMovies(movies)
-
     let topShows = await getTopTVShows(APIkey, incrementedPage);
     this.props.addTopTVShows(topShows)
     // selects a random number - can be used to pick from either array above and display banner
