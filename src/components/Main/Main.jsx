@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -34,8 +34,9 @@ class Main extends Component {
   handleFilterClick = criteria => {
     this.setState({ criteria });
   };
-
   render() {
+   
+    console.log(this.state)
     return (
       <Router>
         <main>

@@ -1,7 +1,9 @@
 //cleans Top Movies and returns to Main to setState
 
+
 const cleanTopMovies = (topMovies) =>{
 let films = topMovies.results.map(topMovie => {
+
   return {
     id: topMovie.id,
     title: topMovie.title,
@@ -12,7 +14,5 @@ let films = topMovies.results.map(topMovie => {
 })
 return films
 }
-
-
 
 export {cleanTopMovies}

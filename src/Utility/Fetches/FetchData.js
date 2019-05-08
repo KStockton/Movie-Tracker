@@ -3,4 +3,3 @@ export const fetchData = async url => {
   let resolved = await response.json();
   return resolved
 };
-
