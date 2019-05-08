@@ -21,26 +21,23 @@ class Main extends Component {
   }
 
 componentDidMount(){
-  const { currentPage, topMovies} = this.state
+  const { currentPage} = this.state
   let incrementedPage = currentPage + 1;
-this.setState({currentPage: incrementedPage}, () => {
+  this.setState({currentPage: incrementedPage}, () => {
 
   let url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${APIkey}&language=en-US&page=${incrementedPage}`
   fetchData(url)
-  .then(topFilms => {
-      console.log(topFilms)
-
-})
-  
-})
+    .then(filmdata => cleanTopMovies(filmdata.results))
+    .then(topMovies => this.setState({topMovies}))
+  })
 }
+
 
     handleClick = (criteria) => {
         this.setState({ criteria})
     }
     
   render() {
-    console.log(this.state.topMovies)
     return (
       <Router>
         <main>
