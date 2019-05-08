@@ -1,5 +1,7 @@
 export const fetchData = async url => {
   let response = await fetch(url);
-  let resolved = await response.json();
-  return resolved
+  if(!response.ok){
+    throw Error('Error retrieving data')
+  }
+  return await response.json();
 };
