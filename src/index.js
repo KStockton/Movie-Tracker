@@ -19,6 +19,8 @@ import {createStore} from 'redux';
 
 const router = (
   // <Provider store={store}>
+  <BrowserRouter>
+    <App/>
     <App/>
   // </Provider>
 )
