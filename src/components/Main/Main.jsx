@@ -7,6 +7,7 @@ import Genre from "../Genre/Genre";
 import SearchResults from "../SearchResults/SearchResults";
 import { fetchData } from '../../Utility/Fetches/FetchData';
 import { cleanTopMovies } from '../../Utility/Cleaners/CleanTopMovies';
+import { cleanTVShows } from '../../Utility/Cleaners/CleanTVShows';
 import { APIkey } from '../../Utility/Config/Key'
 
 class Main extends Component {
@@ -15,12 +16,14 @@ class Main extends Component {
     this.state = {
       topMovies: [],
       currentPage: 0,
-                criteria : '',
-          genre : ''
+      criteria : '',
+      genre : '',
+      topTVShows: []
     }
   }
 
 componentDidMount(){
+  
   const { currentPage} = this.state
   let incrementedPage = currentPage + 1;
   this.setState({currentPage: incrementedPage}, () => {
@@ -30,6 +33,15 @@ componentDidMount(){
     .then(filmdata => cleanTopMovies(filmdata.results))
     .then(topMovies => this.setState({topMovies}))
   })
+
+  let url = `https://api.themoviedb.org/3/tv/top_rated?api_key=${APIkey}&language=en-US&page=${incrementedPage}`
+  fetchData(url)
+  .then(tvData => cleanTVShows(tvData.results))
+  .then(topTVShows => this.setState({topTVShows}))
+  
+  
+
+
 }
 
 
@@ -38,6 +50,8 @@ componentDidMount(){
     }
     
   render() {
+   
+    console.log(this.state)
     return (
       <Router>
         <main>
