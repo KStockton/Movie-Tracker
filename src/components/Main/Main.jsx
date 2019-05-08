@@ -53,6 +53,7 @@ class Main extends Component {
 const mapStateToProps = state => ({
   topMovies : state.topMovies
 });
+
 const mapDispatchToProps = dispatch => ({
   addTopMovies : movies => dispatch(addTopMovies(movies))
 });
