@@ -22,9 +22,9 @@ class Nav extends Component {
           <li><button>My List</button></li>
         </ul>
         <ul>
-          <li><input className="nav-search-btn" type="text"></input></li>
-          <li><Link to="/user-forms">Search Results</Link></li>
-          <li><Link to="/user-forms">User</Link></li>
+          {/* <li><input className="nav-search-btn" type="text"></input></li> */}
+          {/* <li><Link to="/user-forms">Search Results</Link></li> */}
+          <li><Link to="/user-sign-in">User</Link></li>
 
         </ul>
       </nav>
