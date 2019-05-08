@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import Nav from "../Nav/Nav";
+import Footer from "../Footer/Footer";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "../Home/Home";
+import Genre from "../Genre/Genre";
+import SearchResults from "../SearchResults/SearchResults";
 import { fetchData } from '../../Utility/Fetches/FetchData';
 import { cleanTopMovies } from '../../Utility/Cleaners/CleanTopMovies';
 import { APIkey } from '../../Utility/Config/Key'
@@ -8,7 +14,9 @@ class Main extends Component {
     super()
     this.state = {
       topMovies: [],
-      currentPage: 0
+      currentPage: 0,
+                criteria : '',
+          genre : ''
     }
   }
 
@@ -27,20 +35,24 @@ this.setState({currentPage: incrementedPage}, () => {
 })
 }
 
-    // console.log(topMovies.total_pages))
-    // cleanTopMovies(topMovies))
-
-
+    handleClick = (criteria) => {
+        this.setState({ criteria})
+    }
+    
   render() {
     console.log(this.state.topMovies)
     return (
-      <div>
-        <h1>Hello</h1>
-
-        
-      </div>
-    )
+      <Router>
+        <main>
+          <Nav handleClick = {this.handleClick}/>
+          <Route path="/" exact component={Home} />
+          <Route path="/genre" component={Genre} />
+          <Route path="/search-results" component={SearchResults} />
+          <Footer />
+        </main>
+      </Router>
+    );
   }
 }
 
-export default Main
+export default Main;
