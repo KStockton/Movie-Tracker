@@ -9,21 +9,21 @@ import { combineReducers, creat } from 'redux';
 import {createStore} from 'redux';
 
 
-const allReducers = combineReducers({
+// const allReducers = combineReducers({
   
-})
+// })
 
-const store = createStore({
+// const store = createStore({
   
-})
+// })
 
 
 const router = (
-  <Provider store={store}>
+  // <Provider store={store}>
   <BrowserRouter>
     <App/>
   </BrowserRouter>
-  </Provider>
+  // </Provider>
 )
 
 ReactDOM.render( router, document.getElementById('root'));
