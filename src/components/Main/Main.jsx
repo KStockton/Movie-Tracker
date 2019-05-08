@@ -26,7 +26,6 @@ class Main extends Component {
         <main>
           <Nav handleClick = {this.handleClick}/>
           <Route path="/" exact component={Home} />
-          <Route path="/genre" component={Genre} />
           <Route path="/search-results" component={SearchResults} />
           <Footer />
         </main>
