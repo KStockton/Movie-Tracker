@@ -4,7 +4,7 @@ const cleanTopTVShows = topTV => {
   let cleanShows = topTV.map(shows => {
     return {
       id: shows.id,
-      title: shows.original_name,
+      title: shows.name,
       image: shows.backdrop_path,
       overview: shows.overview,
       posterpath: shows.poster_path,
