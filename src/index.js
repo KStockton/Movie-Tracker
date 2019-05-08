@@ -10,7 +10,6 @@ import rootReducer from "./Reducers";
 // const allReducers = combineReducers({
 
 // })
-const cors = require('cors');
 
 const store = createStore(rootReducer, composeWithDevTools());
 
