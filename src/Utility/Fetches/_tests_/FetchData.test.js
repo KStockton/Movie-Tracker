@@ -26,7 +26,7 @@ describe("fetchData", () => {
       expect(result).toEqual(mockData)
   })
 
-  it('should throw an error if the response is not ok', async () => {
+  it('should throw an error if the response isnt valid', async () => {
     window.fetch = jest.fn().mockImplementationOnce(() => Promise.resolve({
       ok: false
     }))
