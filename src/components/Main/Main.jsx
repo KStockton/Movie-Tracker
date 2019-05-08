@@ -8,7 +8,7 @@ import { APIkey } from "../../Utility/Config/Key";
 import { getTopMovies } from "../../Utility/Helpers/GetTopMovies";
 import { getTopTVShows } from "../../Utility/Helpers/GetTopTVShows";
 import { connect } from "react-redux";
-import {addTopMovies} from "../../Actions/index";
+import {addTopMovies, addTopTVShows} from "../../Actions/index";
 
 class Main extends Component {
   constructor() {
@@ -27,6 +27,9 @@ class Main extends Component {
     let incrementedPage = currentPage + 1;
     let movies = await getTopMovies(APIkey, incrementedPage);
     this.props.addTopMovies(movies)
+
+    let topShows = await getTopTVShows(APIkey, incrementedPage);
+    this.props.addTopTVShows(topShows)
     // selects a random number - can be used to pick from either array above and display banner
     // const randomNumber = Math.floor(Math.random() * 20) + 1;
   }
@@ -55,7 +58,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addTopMovies : movies => dispatch(addTopMovies(movies))
+  addTopMovies : movies => dispatch(addTopMovies(movies)),
+  addTopTVShows: topShows => dispatch(addTopTVShows(topShows))
 });
 
 export default connect(
