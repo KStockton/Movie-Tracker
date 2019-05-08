@@ -8,8 +8,9 @@ import { APIkey } from "../../Utility/Config/Key";
 import { getTopMovies } from "../../Utility/Helpers/GetTopMovies";
 import { getTopTVShows } from "../../Utility/Helpers/GetTopTVShows";
 import { connect } from "react-redux";
-import { addTopMovies, addTopTVShows } from "../../Actions/index";
 import { getMovies } from '../../Utility/Helpers/GetMovies';
+import {addTopMovies, addTopTVShows} from "../../Actions/index";
+import UserSignIn from '../UserSignIn/UserSignIn';
 
 class Main extends Component {
   constructor() {
@@ -37,9 +38,7 @@ class Main extends Component {
   }
 
   handleFilterClick = criteria => {
-    const { currentPage } = this.state;
     this.setState({ criteria });
-    getMovies(currentPage, criteria);
   };
   render() {
     return (
@@ -48,6 +47,8 @@ class Main extends Component {
           <Nav handleFilterClick={this.handleFilterClick} />
           <Route path="/" exact component={Home} />
           <Route path="/search-results" component={SearchResults} />
+          <Route path="/user-sign-in" component={UserSignIn} />
+
           <Footer />
         </main>
       </Router>
