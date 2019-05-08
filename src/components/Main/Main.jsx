@@ -9,6 +9,8 @@ import { getTopMovies } from "../../Utility/Helpers/GetTopMovies";
 import { getTopTVShows } from "../../Utility/Helpers/GetTopTVShows";
 import { connect } from "react-redux";
 import {addTopMovies, addTopTVShows} from "../../Actions/index";
+import { get } from 'http';
+import { getMovies } from '../../Utility/Helpers/GetMovies';
 
 class Main extends Component {
   constructor() {
@@ -29,12 +31,15 @@ class Main extends Component {
     this.props.addTopMovies(movies)
     let topShows = await getTopTVShows(APIkey, incrementedPage);
     this.props.addTopTVShows(topShows)
+    this.setState({currentPage: incrementedPage})
     // selects a random number - can be used to pick from either array above and display banner
     // const randomNumber = Math.floor(Math.random() * 20) + 1;
   }
 
   handleFilterClick = criteria => {
+    const { currentPage } = this.state;
     this.setState({ criteria });
+    getMovies(currentPage, criteria);
   };
   render() {
    
