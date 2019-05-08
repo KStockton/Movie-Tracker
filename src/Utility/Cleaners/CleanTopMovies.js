@@ -1,3 +1,5 @@
+//cleans Top Movies and returns to Main to setState
+
 export function cleanTopMovies(topMovies){
 let films = topMovies.map(topMovie => {
   return {

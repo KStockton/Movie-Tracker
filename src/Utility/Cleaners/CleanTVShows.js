@@ -1,3 +1,5 @@
+//cleans TV Shows and returns to Main to setState
+
 export function cleanTVShows(topTV) {
   let cleanShows = topTV.map(shows => {
     return {

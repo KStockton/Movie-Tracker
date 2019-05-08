@@ -18,13 +18,13 @@ class Main extends Component {
       currentPage: 0,
       criteria : '',
       genre : '',
-      topTVShows: []
+      topTVShows: [],
     }
   }
 
 componentDidMount(){
   
-  const { currentPage} = this.state
+  const { currentPage, topMovies, topTVShows} = this.state
   let incrementedPage = currentPage + 1;
   this.setState({currentPage: incrementedPage}, () => {
 
@@ -37,10 +37,11 @@ componentDidMount(){
   let url = `https://api.themoviedb.org/3/tv/top_rated?api_key=${APIkey}&language=en-US&page=${incrementedPage}`
   fetchData(url)
   .then(tvData => cleanTVShows(tvData.results))
-  .then(topTVShows => this.setState({topTVShows}))
+  .then(topTVShows => this.setState({topTVShows}, () => {
+  }))
   
-  
-
+  // selects a random number - can be used to pick from either array above and display banner
+  const randomNumber = Math.floor(Math.random() * 20) + 1
 
 }
 
