@@ -4,6 +4,7 @@ import { addUser } from "../../Actions/index";
 import { connect } from "react-redux";
 import SignInUser from "./SignInForms/SignInUser";
 import NewUser from "./SignInForms/NewUser";
+import { Route } from "react-router-dom"
 
 class UserSignIn extends Component {
   constructor(props) {
@@ -13,21 +14,22 @@ class UserSignIn extends Component {
       email: "",
       password: "",
       name: "",
-      newUser: false,
-      user: {}
+      newUserBool: false,
+      user: {},
+      path: "/user-sign-in"
     };
   }
 
   handleLogin = async e => {
     e.preventDefault();
-    const { name, email, password, newUser } = this.state;
-    if (newUser) {
+    const { name, email, password, newUserBool } = this.state;
+    if (newUserBool) {
       const url = "users/new";
-      const newUser = await postUsers(url, "POST", { name, password, email });
+      await postUsers(url, "POST", { name, password, email });
     } else {
       const url = "users";
       const userResponse = await postUsers(url, "POST", { password, email });
-      const { data, status, message } = userResponse;
+      const { data, status, message, newUserBool } = userResponse;
       this.props.addUser(data);
       console.log(status, message);
     }
@@ -38,14 +40,20 @@ class UserSignIn extends Component {
     this.setState({ [name]: value });
   };
 
+  determineUserPath = newUserBool => {
+    if (newUserBool) {
+      this.setState({ path: "/user-settings" });
+    }
+  };
+
   handleToggleForm = e => {
     e.preventDefault();
-    const { newUser } = this.state;
-    this.setState({ newUser: !newUser });
+    const { newUserBool } = this.state;
+    this.setState({ newUserBool: !newUserBool });
   };
 
   render() {
-    return !this.state.newUser ? (
+    return  !this.state.newUserBool ? (
       <SignInUser
         {...this.state}
         handleChange={this.handleChange}

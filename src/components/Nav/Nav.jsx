@@ -15,7 +15,7 @@ class Nav extends Component {
     return (
       <nav>
         <ul>
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="/home">Home</Link></li>
           <li><button name="tv" onClick ={(e) => handleFilterClick(e.target.name)}>TV Shows</button></li>
           <li><button name="movie" onClick ={(e) => handleFilterClick(e.target.name)}>Movies</button></li>
           <li><button name="upcoming" onClick ={(e) => handleFilterClick(e.target.name)}>Upcoming</button></li>
@@ -24,7 +24,7 @@ class Nav extends Component {
         <ul>
           {/* <li><input className="nav-search-btn" type="text"></input></li> */}
           {/* <li><Link to="/user-forms">Search Results</Link></li> */}
-          <li><Link to="/user-sign-in">User</Link></li>
+          <li><Link to="/login">User</Link></li>
 
         </ul>
       </nav>
