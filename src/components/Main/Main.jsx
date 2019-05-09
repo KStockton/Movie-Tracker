@@ -44,4 +44,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({});
 
 
-export default Main
+export default connect(mapStateToProps)(Main)

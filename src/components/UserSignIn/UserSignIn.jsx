@@ -4,7 +4,7 @@ import { addUser } from "../../Actions/index";
 import { connect } from "react-redux";
 import SignInUser from "./SignInForms/SignInUser";
 import NewUser from "./SignInForms/NewUser";
-import { Route } from "react-router-dom"
+import { Route } from "react-router-dom";
 
 class UserSignIn extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class UserSignIn extends Component {
       name: "",
       newUserBool: false,
       user: {},
-      path: "/user-sign-in"
+      error: ""
     };
   }
 
@@ -27,23 +27,24 @@ class UserSignIn extends Component {
       const url = "users/new";
       await postUsers(url, "POST", { name, password, email });
     } else {
-      const url = "users";
+      this.userSignIn(email, password);
+    }
+  };
+
+  userSignIn = async (email, password) => {
+    const url = "users";
+    try {
       const userResponse = await postUsers(url, "POST", { password, email });
-      const { data, status, message, newUserBool } = userResponse;
+      const { data } = userResponse;
       this.props.addUser(data);
-      console.log(status, message);
+    } catch (e) {
+      this.setState({ error: "The username or password is incorrect!" });
     }
   };
 
   handleChange = e => {
     const { value, name } = e.target;
     this.setState({ [name]: value });
-  };
-
-  determineUserPath = newUserBool => {
-    if (newUserBool) {
-      this.setState({ path: "/user-settings" });
-    }
   };
 
   handleToggleForm = e => {
@@ -53,7 +54,7 @@ class UserSignIn extends Component {
   };
 
   render() {
-    return  !this.state.newUserBool ? (
+    return !this.state.newUserBool ? (
       <SignInUser
         {...this.state}
         handleChange={this.handleChange}
