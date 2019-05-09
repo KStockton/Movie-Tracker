@@ -6,7 +6,7 @@ const films = topMovies.map(topMovie => {
 
   return {
     id: topMovie.id,
-    title: topMovie.name,
+    title: topMovie.title,
     image: topMovie.backdrop_path,
     overview: topMovie.overview,
     posterpath: topMovie.poster_path,
