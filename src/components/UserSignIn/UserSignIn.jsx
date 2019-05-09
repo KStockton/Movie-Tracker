@@ -18,16 +18,15 @@ class UserSignIn extends Component {
 
   handleLogin = async e => {
     e.preventDefault();
-    const { name, email, password, newUser } = this.state;
+    const { name, email, password, newUser, user } = this.state;
     if (newUser) {
       const url = "users/new";
       const newUser = await postUsers(url, "POST", { name, password, email });
     } else {
       const url = "users";
-      const user = await postUsers(url, "POST", { password, email });
-      console.log(user);
-      this.setState({ user: user });
-      this.props.addUser(user)
+      const userResponse = await postUsers(url, "POST", { password, email });
+      const { data, status, message } = userResponse;
+      this.props.addUser(data);
     }
   };
 
