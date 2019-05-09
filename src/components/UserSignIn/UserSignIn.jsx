@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {postUsers} from '../../Utility/Fetches/PostUsers'
+import { postUsers } from "../../Utility/Fetches/PostUsers";
 class UserSignIn extends Component {
   constructor(props) {
     super(props);
@@ -7,37 +7,44 @@ class UserSignIn extends Component {
     this.state = {
       email: "",
       password: "",
-      name: ""
+      name: "",
+      newUser: false
     };
   }
 
-
-  handleLogin = async (url, method, body) => {
-    const response = await postUsers(url, method, body)
-    console.log(response)
-  }
-
-  createAccount = async e => {
-    e.preventDefault();
-    const { name, email, password} = this.state;
-    const url = 'users/new';
-    await this.handleLogin(url, 'POST', {name, password, email})
+  createAccount = async (url, method, body) => {
+    const response = await postUsers(url, method, body);
+    console.log(response);
   };
 
-  
-
+  handleLogin = async e => {
+    e.preventDefault();
+    const { name, email, password, newUser } = this.state;
+    if (newUser) {
+      const url = "users/new";
+      await this.createAccount(url, "POST", { name, password, email });
+    }
+  };
 
   handleChange = e => {
     const { value, name } = e.target;
     this.setState({ [name]: value });
   };
 
+  toggleForm = e => {
+    e.preventDefault();
+    const { newUser } = this.state;
+    this.setState({ newUser: !newUser });
+  };
 
   render() {
-    return (
+    return this.state.newUser ? (
       <section className="user-sign-in-container">
-        <form onSubmit={this.createAccount}>
-          <label>name</label>
+        <form
+          onSubmit={this.handleLogin}
+          className="create-account-form login-form"
+        >
+          <label>Name</label>
           <input
             name="name"
             type="text"
@@ -59,6 +66,32 @@ class UserSignIn extends Component {
             value={this.state.password}
           />
           <button type="submit">Create Account</button>
+          <button onClick={this.toggleForm}>
+            Already have an account? Sign in!
+          </button>
+        </form>
+      </section>
+    ) : (
+      <section className="user-sign-in-container">
+        <form onSubmit={this.handleLogin} className="sign-in-form login-form">
+          <label>Email</label>
+          <input
+            name="email"
+            type="email"
+            onChange={this.handleChange}
+            value={this.state.email}
+          />
+          <label>Password</label>
+          <input
+            name="password"
+            type="text"
+            onChange={this.handleChange}
+            value={this.state.password}
+          />
+          <button type="submit">Sign In</button>
+          <button onClick={this.toggleForm}>
+            New user? Create an Account!
+          </button>
         </form>
       </section>
     );

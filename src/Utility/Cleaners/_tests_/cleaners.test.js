@@ -1,6 +1,6 @@
-import {cleanTopMovies} from './CleanTopMovies'
-import {cleanTopTVShows} from './CleanTopTVShows'
-import * as MD from '../MockData/MockData'
+import {cleanTopMovies} from '../CleanTopMovies'
+import {cleanTopTVShows} from '../CleanTopTVShows'
+import * as MD from '../../MockData/MockData'
 
 describe('CleanTopMovies', () => {
   it('should cleanTopMovies when it receives an unwanted key value pairs', () => {
