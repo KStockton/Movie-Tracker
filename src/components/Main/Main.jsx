@@ -8,6 +8,7 @@ import UserSignIn from "../UserSignIn/UserSignIn";
 import UserSettings from "../UserSettings/UserSettings";
 import { Route, Redirect } from "react-router-dom";
 
+
 class Main extends Component {
   constructor() {
     super();
@@ -15,6 +16,7 @@ class Main extends Component {
   }
 
   async componentDidMount() {}
+
 
   handleFilterClick = criteria => {
     this.setState({ criteria });
@@ -41,7 +43,5 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({});
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Main);
+
+export default Main
