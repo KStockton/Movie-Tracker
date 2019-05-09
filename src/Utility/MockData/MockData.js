@@ -47,7 +47,8 @@ export const uncleanShows = [
      image: "/o8Site0BMZ8xhknKJ0m52iLfqHg.jpg",
      overview: "I Am Not An Animal is an animated comedy series about the only six talking animals in the world, whose cosseted existence in a vivisection unit is turned upside down when they are liberated by animal rights activists.",
      posterpath: "/nMhv6jG5dtLdW7rgguYWvpbk0YN.jpg",
-     popularity: "9.5"
+     popularity: "9.5",
+     favorite: false
   },
     {
       id: "1396",
@@ -55,7 +56,8 @@ export const uncleanShows = [
       image: "/eSzpy96DwBujGFj0xMbXBcGcfxX.jpg",
       overview: "When Walter White, a New Mexico chemistry teacher, is diagnosed with Stage III cancer and given a prognosis of only two years left to live. He becomes filled with a sense of fearlessness and an unrelenting desire to secure his family's financial future at any cost as he enters the dangerous world of drugs and crime.",
       posterpath: "/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg",
-      popularity: "8.4"
+      popularity: "8.4",
+      favorite: false
   }
 ]
 export const uncleanMovies =
@@ -107,7 +109,8 @@ export const uncleanMovies =
      image: "/nl79FQ8xWZkhL3rDr1v2RFFR6J0.jpg",
      overview: "Raj is a rich, carefree, happy-go-lucky second generation NRI. Simran is the daughter of Chaudhary Baldev Singh, who in spite of being an NRI is very strict about adherence to Indian values. Simran has left for India to be married to her childhood fiancé. Raj leaves for India with a mission at his hands, to claim his lady love under the noses of her whole family. Thus begins a saga.",
      posterpath: "/uC6TTUhPpQCmgldGyYveKRAu8JN.jpg",
-     popularity: 9
+     popularity: 9,
+     favorite: false
   },
     {
       id: 278,
@@ -115,5 +118,6 @@ export const uncleanMovies =
       image: "/j9XKiZrVeViAixVRzCta7h1VU9W.jpg",
       overview: "Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.",
       posterpath: "/9O7gLzmreU0nGkIB6K3BsJbzvNv.jpg",
-      popularity: 8.7
+      popularity: 8.7,
+      favorite: false
   }]

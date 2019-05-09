@@ -10,7 +10,8 @@ const films = topMovies.map(topMovie => {
     image: topMovie.backdrop_path,
     overview: topMovie.overview,
     posterpath: topMovie.poster_path,
-    popularity: topMovie.vote_average
+    popularity: topMovie.vote_average,
+    favorite: false
   }
 })
 return films
