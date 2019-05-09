@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 
 class App extends React.Component {
   render() {
+    console.log('rendering')
     return (
       <div className="App">
         <Switch>

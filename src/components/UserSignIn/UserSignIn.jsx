@@ -16,7 +16,7 @@ class UserSignIn extends Component {
       name: "",
       newUserBool: false,
       user: {},
-      error: ""
+      status: ""
     };
   }
 
@@ -24,10 +24,9 @@ class UserSignIn extends Component {
     e.preventDefault();
     const { name, email, password, newUserBool } = this.state;
     if (newUserBool) {
-      const url = "users/new";
-      await postUsers(url, "POST", { name, password, email });
+      return await this.userCreation(email, name, password);
     } else {
-      this.userSignIn(email, password);
+      return await this.userSignIn(email, password);
     }
   };
 
@@ -37,9 +36,17 @@ class UserSignIn extends Component {
       const userResponse = await postUsers(url, "POST", { password, email });
       const { data } = userResponse;
       this.props.addUser(data);
+      this.setState({ status: "Successful" });
+      console.log('in here')
     } catch (e) {
-      this.setState({ error: "The username or password is incorrect!" });
+      console.log(e)
+      this.setState({ status: "The username or password is incorrect!" });
     }
+  };
+
+  userCreation = async (email, name, password) => {
+    const url = "users/new";
+    await postUsers(url, "POST", { name, password, email });
   };
 
   handleChange = e => {

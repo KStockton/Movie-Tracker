@@ -8,8 +8,7 @@ const postUsers = async (url, method, body) => {
     `http://localhost:3000/api/${url}`,
     fetchConfig(method, body)
   );
-    const result = await response.json();
-    console.log(result)
-    return result;
+  const result = await response.json();
+  return result;
 };
 export { postUsers, fetchConfig };
