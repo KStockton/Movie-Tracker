@@ -48,7 +48,6 @@ class Main extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/search-results" component={SearchResults} />
           <Route path="/user-sign-in" component={UserSignIn} />
-
           <Footer />
         </main>
       </Router>

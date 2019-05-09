@@ -10,9 +10,6 @@ const postUsers = async (url, method, body) => {
   );
  
   return await response.json();
-
-
-  
   
 };
 

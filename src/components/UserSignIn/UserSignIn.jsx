@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { postUsers } from "../../Utility/Fetches/PostUsers";
+import { addUser } from "../../Actions/index";
+import { connect } from "react-redux";
+
 class UserSignIn extends Component {
   constructor(props) {
     super(props);
@@ -8,24 +11,23 @@ class UserSignIn extends Component {
       email: "",
       password: "",
       name: "",
-      newUser: false
+      newUser: false,
+      user: {}
     };
   }
 
-
-
-  
   handleLogin = async e => {
     e.preventDefault();
     const { name, email, password, newUser } = this.state;
     if (newUser) {
       const url = "users/new";
       const newUser = await postUsers(url, "POST", { name, password, email });
-      console.log(newUser)
     } else {
       const url = "users";
-      const user = await postUsers(url, "POST", { password, email })
-      console.log(user)
+      const user = await postUsers(url, "POST", { password, email });
+      console.log(user);
+      this.setState({ user: user });
+      this.props.addUser(user)
     }
   };
 
@@ -100,5 +102,15 @@ class UserSignIn extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  user: state.user
+});
 
-export default UserSignIn;
+const mapDispatchToProps = dispatch => ({
+  addUser: user => dispatch(addUser(user))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserSignIn);
