@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 
 class App extends React.Component {
   render() {
+    console.log('rendering')
     return (
       <div className="App">
         <Switch>
@@ -16,13 +17,13 @@ class App extends React.Component {
             path="/"
             render={() =>
               this.props.user.name === undefined ? (
-                <UserSignIn />
+                <Redirect to="/login"/>
               ) : (
                 <Main />
               )
             }
           />
-          <Route path="/" component={Main} />
+          <Route exact path="/" component={Main} />
           <Route path="/login" component={UserSignIn} />
           <Route path="/user-settings" component={UserSettings} />
         </Switch>
