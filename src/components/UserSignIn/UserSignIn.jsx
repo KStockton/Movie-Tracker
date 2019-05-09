@@ -12,17 +12,20 @@ class UserSignIn extends Component {
     };
   }
 
-  createAccount = async (url, method, body) => {
-    const response = await postUsers(url, method, body);
-    console.log(response);
-  };
 
+
+  
   handleLogin = async e => {
     e.preventDefault();
     const { name, email, password, newUser } = this.state;
     if (newUser) {
       const url = "users/new";
-      await this.createAccount(url, "POST", { name, password, email });
+      const newUser = await postUsers(url, "POST", { name, password, email });
+      console.log(newUser)
+    } else {
+      const url = "users";
+      const user = await postUsers(url, "POST", { password, email })
+      console.log(user)
     }
   };
 
