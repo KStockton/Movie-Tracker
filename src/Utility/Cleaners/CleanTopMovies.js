@@ -2,7 +2,7 @@
 
 
 const cleanTopMovies = (topMovies) =>{
-let films = topMovies.results.map(topMovie => {
+const films = topMovies.map(topMovie => {
 
   return {
     id: topMovie.id,
