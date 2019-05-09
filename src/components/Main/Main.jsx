@@ -1,56 +1,47 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "../Home/Home";
 import SearchResults from "../SearchResults/SearchResults";
-import UserSignIn from '../UserSignIn/UserSignIn';
+import { connect } from "react-redux";
+import UserSignIn from "../UserSignIn/UserSignIn";
+import UserSettings from "../UserSettings/UserSettings";
+import { Route, Redirect } from "react-router-dom";
+
 
 class Main extends Component {
   constructor() {
     super();
-    this.state = {
-      topMovies: [],
-      currentPage: 0,
-      criteria: "",
-      genre: "",
-      topTVShows: []
-    };
+    this.state = {};
   }
 
-  async componentDidMount() {
+  async componentDidMount() {}
 
-
-
-
-
-
-
-
-
-
-
-  }
 
   handleFilterClick = criteria => {
     this.setState({ criteria });
   };
   render() {
+    console.log(this.props.user.name);
+    console.log("rendering");
     return (
-      <Router>
-        <main>
-          <Nav handleFilterClick={this.handleFilterClick} />
-          <Route path="/" exact component={Home} />
-          <Route path="/search-results" component={SearchResults} />
-          <Route path="/user-sign-in" component={UserSignIn} />
-
-          <Footer />
-        </main>
-      </Router>
+      <main>
+        <Nav
+          handleFilterClick={this.handleFilterClick}
+          handleUserClick={this.handleUserClick}
+        />
+        <Home />
+        <Footer />
+      </main>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+const mapDispatchToProps = dispatch => ({});
 
 
 export default Main

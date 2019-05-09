@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import { postUsers } from "../../Utility/Fetches/PostUsers";
+import { addUser } from "../../Actions/index";
+import { connect } from "react-redux";
+import SignInUser from "./SignInForms/SignInUser";
+import NewUser from "./SignInForms/NewUser";
+import { Route } from "react-router-dom"
+
 class UserSignIn extends Component {
   constructor(props) {
     super(props);
@@ -8,24 +14,24 @@ class UserSignIn extends Component {
       email: "",
       password: "",
       name: "",
-      newUser: false
+      newUserBool: false,
+      user: {},
+      path: "/user-sign-in"
     };
   }
 
-
-
-  
   handleLogin = async e => {
     e.preventDefault();
-    const { name, email, password, newUser } = this.state;
-    if (newUser) {
+    const { name, email, password, newUserBool } = this.state;
+    if (newUserBool) {
       const url = "users/new";
-      const newUser = await postUsers(url, "POST", { name, password, email });
-      console.log(newUser)
+      await postUsers(url, "POST", { name, password, email });
     } else {
       const url = "users";
-      const user = await postUsers(url, "POST", { password, email })
-      console.log(user)
+      const userResponse = await postUsers(url, "POST", { password, email });
+      const { data, status, message, newUserBool } = userResponse;
+      this.props.addUser(data);
+      console.log(status, message);
     }
   };
 
@@ -34,71 +40,45 @@ class UserSignIn extends Component {
     this.setState({ [name]: value });
   };
 
-  toggleForm = e => {
+  determineUserPath = newUserBool => {
+    if (newUserBool) {
+      this.setState({ path: "/user-settings" });
+    }
+  };
+
+  handleToggleForm = e => {
     e.preventDefault();
-    const { newUser } = this.state;
-    this.setState({ newUser: !newUser });
+    const { newUserBool } = this.state;
+    this.setState({ newUserBool: !newUserBool });
   };
 
   render() {
-    return this.state.newUser ? (
-      <section className="user-sign-in-container">
-        <form
-          onSubmit={this.handleLogin}
-          className="create-account-form login-form"
-        >
-          <label>Name</label>
-          <input
-            name="name"
-            type="text"
-            onChange={this.handleChange}
-            value={this.state.name}
-          />
-          <label>Email</label>
-          <input
-            name="email"
-            type="email"
-            onChange={this.handleChange}
-            value={this.state.email}
-          />
-          <label>Password</label>
-          <input
-            name="password"
-            type="text"
-            onChange={this.handleChange}
-            value={this.state.password}
-          />
-          <button type="submit">Create Account</button>
-          <button onClick={this.toggleForm}>
-            Already have an account? Sign in!
-          </button>
-        </form>
-      </section>
+    return  !this.state.newUserBool ? (
+      <SignInUser
+        {...this.state}
+        handleChange={this.handleChange}
+        handleToggleForm={this.handleToggleForm}
+        handleLogin={this.handleLogin}
+      />
     ) : (
-      <section className="user-sign-in-container">
-        <form onSubmit={this.handleLogin} className="sign-in-form login-form">
-          <label>Email</label>
-          <input
-            name="email"
-            type="email"
-            onChange={this.handleChange}
-            value={this.state.email}
-          />
-          <label>Password</label>
-          <input
-            name="password"
-            type="text"
-            onChange={this.handleChange}
-            value={this.state.password}
-          />
-          <button type="submit">Sign In</button>
-          <button onClick={this.toggleForm}>
-            New user? Create an Account!
-          </button>
-        </form>
-      </section>
+      <NewUser
+        {...this.state}
+        handleChange={this.handleChange}
+        handleToggleForm={this.handleToggleForm}
+        handleLogin={this.handleLogin}
+      />
     );
   }
 }
+const mapStateToProps = state => ({
+  user: state.user
+});
 
-export default UserSignIn;
+const mapDispatchToProps = dispatch => ({
+  addUser: user => dispatch(addUser(user))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserSignIn);

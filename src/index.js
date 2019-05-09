@@ -1,4 +1,4 @@
-import React from "react";         
+import React from "react";
 import ReactDOM from "react-dom";
 import "./Sass/index.scss";
 import App from "./Components/App/App.jsx";
@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from "./Reducers";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 // const allReducers = combineReducers({
 
 // })
@@ -14,9 +16,11 @@ import rootReducer from "./Reducers";
 const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </Router>,
   document.getElementById("root")
 );
 
