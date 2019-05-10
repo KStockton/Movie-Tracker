@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import Nav from "../Nav/Nav";
-import Footer from "../Footer/Footer";
+import Footer from "../../Components/Footer/Footer";
 import Home from "../Home/Home";
-import SearchResults from "../SearchResults/SearchResults";
 import { connect } from "react-redux";
-import UserSignIn from "../UserSignIn/UserSignIn";
-import UserSettings from "../UserSettings/UserSettings";
-import { Route, Redirect } from "react-router-dom";
 
 
 class Main extends Component {
@@ -22,8 +18,6 @@ class Main extends Component {
     this.setState({ criteria });
   };
   render() {
-    console.log(this.props.user.name);
-    console.log("rendering");
     return (
       <main>
         <Nav

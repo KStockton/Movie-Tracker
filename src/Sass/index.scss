@@ -1,15 +1,15 @@
 @import '../Sass/normalize';
 @import '../Sass/_Variables.scss';
-@import '../Components/App/App';
-@import '../Components/Home/home';
+@import '../Containers/App/App';
+@import '../Containers/Home/home';
 @import '../Components/CardContainer/cardContainer';
 @import '../Components/Card/card';
 @import '../Components/Footer/footer';
 @import '../Components/Genre/genre';
-@import '../Components/Main/main';
-@import '../Components/Nav/nav';
+@import '../Containers/Main/main';
+@import '../Containers/Nav/nav';
 @import '../Components/SearchResults/searchResults';
-@import '../Components/UserSignIn/userSignIn';
+@import '../Containers/UserSignIn/userSignIn';
 
 
 
