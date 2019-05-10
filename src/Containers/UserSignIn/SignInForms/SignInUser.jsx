@@ -7,24 +7,38 @@ export default function SignInUser(props) {
   ) : (
     <section className="user-sign-in-container">
       <form onSubmit={props.handleLogin} className="sign-in-form login-form">
-        <label>Email</label>
-        <input
-          name="email"
-          type="email"
-          onChange={props.handleChange}
-          value={props.email}
-        />
-        <label>Password</label>
-        <input
-          name="password"
-          type="password"
-          onChange={props.handleChange}
-          value={props.password}
-        />
-        <button onClick={props.handleLogin}>Sign In</button>
-        <button onClick={props.handleToggleForm}>
-          New user? Create an Account!
-        </button>
+        <h3 className="user-form-title">SIGN IN</h3>
+        <div className="input-container">
+          <label>Email</label>
+          <input
+            name="email"
+            type="email"
+            onChange={props.handleChange}
+            value={props.email}
+            className="user-input"
+          />
+        </div>
+        <div className="input-container">
+          <label>Password</label>
+          <input
+            name="password"
+            type="password"
+            onChange={props.handleChange}
+            value={props.password}
+            className="user-input"
+          />
+        </div>
+        <div className="button-container">
+          <button
+            className="user-form-button sign-in-button"
+            onClick={props.handleLogin}
+          >
+            Sign In
+          </button>
+          <button className="user-form-link" onClick={props.handleToggleForm}>
+            New user? Create an Account!
+          </button>
+        </div>
       </form>
     </section>
   );

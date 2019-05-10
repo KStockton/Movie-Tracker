@@ -4,6 +4,7 @@ nav {
   background-color: $nav-background-color;
   height: 6em;
   @include displayFlex(center, center, null, row);
+  border-bottom: 0.2em solid #254f61;
 }
 ul {
   list-style: none;
@@ -16,13 +17,19 @@ nav li {
   border-radius: 1em;
   padding: 0 1em;
 }
-a.nav-link {
+
+a.nav-link, button.nav-link {
   text-decoration: none;
   color: $text-color-main;
   font-size: $nav-button-font-size;
   font-weight: bold;
+  background-color: transparent;
+  border: none;
+  transition: color 0.2s
 }
-
+a.nav-link:hover, button.nav-link:hover {
+    color: #387690;
+}
 .main-nav-container {
   width: 40%;
   @include displayFlex(flex-start, center, baseline, row);

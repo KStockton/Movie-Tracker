@@ -15,12 +15,12 @@ class Nav extends Component {
       <nav>
         <ul>
           <div className="main-nav-container">
-          <h1 className="nav-title">Movie Tracker</h1>
-          <li>
-            <NavLink to="/" className="nav-link">
-              Home
-            </NavLink>
-          </li>
+            <h1 className="nav-title">Movie Tracker</h1>
+            <li>
+              <NavLink to="/" className="nav-link">
+                Home
+              </NavLink>
+            </li>
           </div>
           <section className="sign-in-container" />
           <li>
@@ -33,11 +33,14 @@ class Nav extends Component {
     ) : (
       <nav>
         <ul>
-          <li>
-            <NavLink to="/" className="nav-link">
-              Home
-            </NavLink>
-          </li>
+          <div className="main-nav-container">
+            <h1 className="nav-title">Movie Tracker</h1>
+            <li>
+              <NavLink to="/" className="nav-link">
+                Home
+              </NavLink>
+            </li>
+          </div>
           <section className="sign-in-container" />
           <li>
             <button

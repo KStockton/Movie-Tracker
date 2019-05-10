@@ -10,7 +10,7 @@
   flex-direction: $fdirection;
 }
 
-
+// * CORE VARIABLES
 
 // * NAV
 $text-color-main: rgb(226, 226, 226);
@@ -19,3 +19,6 @@ $nav-background-color: rgb(31, 31, 31);
 $nav-button-font-size: 1.4em;
 
 //* USER SIGN-IN
+
+$user-text-color-main: rgb(226, 226, 226);
+$user-background-color : rgb(51, 51, 51);
