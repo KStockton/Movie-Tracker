@@ -37,9 +37,7 @@ class UserSignIn extends Component {
       const { data } = userResponse;
       this.props.addUser(data);
       this.setState({ status: "Successful" });
-      console.log('in here')
     } catch (e) {
-      console.log(e)
       this.setState({ status: "The username or password is incorrect!" });
     }
   };
@@ -61,6 +59,7 @@ class UserSignIn extends Component {
   };
 
   render() {
+    console.log(this.state.status)
     return !this.state.newUserBool ? (
       <SignInUser
         {...this.state}
