@@ -5,16 +5,16 @@
   color: $user-text-color-main;
   padding-top: 10%;
   @include displayFlex(none, center, center, column);
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .login-form {
   @include displayFlex(space-around, center, center, column);
-  height: 25em;
-  padding: 3em;
+  height: 15em;
+  padding: 1em;
   background-color: #112731;
   border-radius: 0.5em;
-  border: 0.2em #254f61 solid;
+  border: 0.1em $user-form-border-color solid;
 }
 .input-container {
   @include displayFlex(space-around, center, flex-start, column);
@@ -24,37 +24,47 @@
 }
 .user-input {
   width: 95%;
-  height: 2em;
+  height: 1.5em;
   margin-top: 0.3em;
   border: none;
   border-radius: 0.2em;
   padding-left: 0.5em;
-  border: solid 0.15em #254f61;
+  border: solid 0.15em $user-form-border-color;
+  font-size: 0.7em;
 }
 .sign-in-button {
-  width: 100%;
-  height: 2.5em;
+  font-size: 0.8em;
+  width: 5em;
+  height: 1.5em;
   border-radius: 1em;
-  border: solid 0.15em #254f61;
+  border: solid 0.15em $user-form-border-color;
 }
 .sign-in-button:focus,
 .sign-in-button:hover {
-  background-color: #387690;
+  background-color: $user-text-color-hover;
 }
 .user-form-link {
   background-color: transparent;
   text-decoration: underline;
   border: none;
   font-size: 0.8em;
-  padding-top: 2em;
-  color: rgb(195, 195, 195);
+  padding-top: 0.5em;
+  color: $user-text-color-main;
+}
+.button-container {
+  @include displayFlex(center, center, center, column);
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.user-form-title {
+  font-size: 1.2em;
+  padding: 0.2em 2em;
+  border: 0.05em $user-form-border-color solid;
 }
 
-.user-form-title {
-  font-size: 2em;
-  padding: 0.2em 2em;
-  border: 0.09em #254f61 solid;
-}
 .user-form-link:hover {
-  color: #387690;
+  color: $user-text-color-hover;
 }
+

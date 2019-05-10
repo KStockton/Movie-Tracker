@@ -42,9 +42,13 @@ class Nav extends Component {
             </li>
           </div>
           <section className="sign-in-container" />
-          <li>
+
+          <li className="nav-signed-in-container">
+            <span className="nav-signed-in-user">
+              Signed in as: {this.props.user.name}
+            </span>
             <button
-              className="nav-link"
+              className="nav-title-signout-button"
               onClick={() => this.props.removeUser({})}
             >
               Sign Out

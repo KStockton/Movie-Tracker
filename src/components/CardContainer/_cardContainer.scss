@@ -1,6 +1,5 @@
 .CardContainer-wrapper {
   display: flex;
-  flex-direction: row;
-  overflow: scroll;
-  opacity: 0.4;
+  flex-wrap:wrap;
+  justify-content: center;
 }

@@ -10,15 +10,20 @@
   flex-direction: $fdirection;
 }
 
+
 // * CORE VARIABLES
 
 // * NAV
 $text-color-main: rgb(226, 226, 226);
 $nav-background-color: rgb(31, 31, 31);
+$nav-text-color-hover: #8ef3c4;
+
 
 $nav-button-font-size: 1.4em;
 
 //* USER SIGN-IN
 
 $user-text-color-main: rgb(226, 226, 226);
-$user-background-color : rgb(51, 51, 51);
+$user-background-color : #112731;
+$user-form-border-color: #57a580;
+$user-text-color-hover: #8ef3c4;
