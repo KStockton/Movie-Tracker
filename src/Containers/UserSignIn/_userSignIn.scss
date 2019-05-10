@@ -1,13 +1,60 @@
 .user-sign-in-container {
-    background-color: rgb(0, 0, 73);
-    height: 100%;
-    color: white;
-
-
+  background: #0f2027;
+  background: -webkit-linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  height: 100vh;
+  color: $user-text-color-main;
+  padding-top: 10%;
+  @include displayFlex(none, center, center, column);
+  font-size: 1.5em;
 }
 
 .login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  @include displayFlex(space-around, center, center, column);
+  height: 25em;
+  padding: 3em;
+  background-color: #112731;
+  border-radius: 0.5em;
+  border: 0.2em #254f61 solid;
+}
+.input-container {
+  @include displayFlex(space-around, center, flex-start, column);
+}
+.input-container {
+  width: 100%;
+}
+.user-input {
+  width: 95%;
+  height: 2em;
+  margin-top: 0.3em;
+  border: none;
+  border-radius: 0.2em;
+  padding-left: 0.5em;
+  border: solid 0.15em #254f61;
+}
+.sign-in-button {
+  width: 100%;
+  height: 2.5em;
+  border-radius: 1em;
+  border: solid 0.15em #254f61;
+}
+.sign-in-button:focus,
+.sign-in-button:hover {
+  background-color: #387690;
+}
+.user-form-link {
+  background-color: transparent;
+  text-decoration: underline;
+  border: none;
+  font-size: 0.8em;
+  padding-top: 2em;
+  color: rgb(195, 195, 195);
+}
+
+.user-form-title {
+  font-size: 2em;
+  padding: 0.2em 2em;
+  border: 0.09em #254f61 solid;
+}
+.user-form-link:hover {
+  color: #387690;
 }
