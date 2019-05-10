@@ -3,12 +3,14 @@ import Main from "../Main/Main.jsx";
 import { Switch, Route, Redirect } from "react-router-dom";
 import UserSignIn from "../UserSignIn/UserSignIn";
 import { connect } from "react-redux";
+import Nav from '../Nav/Nav'
 
 class App extends React.Component {
   render() {
     console.log("rendering");
     return (
       <div className="App">
+      <Nav />
         <Switch>
           <Route exact path="/" component={Main} />
           <Route path="/login" component={UserSignIn} />
