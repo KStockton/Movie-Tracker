@@ -4,7 +4,6 @@ import { addUser } from "../../Actions/index";
 import { connect } from "react-redux";
 import SignInUser from "./SignInForms/SignInUser";
 import NewUser from "./SignInForms/NewUser";
-import { Route } from "react-router-dom";
 
 class UserSignIn extends Component {
   constructor(props) {
