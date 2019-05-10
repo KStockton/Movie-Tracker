@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
+import {removeUser} from '../../Actions'
 
 class Nav extends Component {
   constructor(props) {
@@ -14,11 +15,11 @@ class Nav extends Component {
       <nav>
         <ul>
           <li>
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <section className="sign-in-container" />
           <li>
-            <Link to="/login">Log in or Sign up</Link>
+            <Link to="/login">Log in/Sign up</Link>
           </li>
         </ul>
       </nav>
@@ -26,11 +27,11 @@ class Nav extends Component {
       <nav>
         <ul>
           <li>
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <section className="sign-in-container" />
           <li>
-            <Link to="/user-settings">User</Link>
+            <button onClick = {() => this.props.removeUser({})}>Sign Out</button >
           </li>
         </ul>
       </nav>
@@ -41,5 +42,8 @@ class Nav extends Component {
 const mapStateToProps = state => ({
   user: state.user
 });
+const mapDispatchToProps = dispatch => ({
+  removeUser: user => dispatch(removeUser(user))
+})
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
