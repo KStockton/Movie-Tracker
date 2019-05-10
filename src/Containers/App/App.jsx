@@ -1,9 +1,7 @@
 import React from "react";
 import Main from "../Main/Main.jsx";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Home from "../Home/Home";
 import UserSignIn from "../UserSignIn/UserSignIn";
-import UserSettings from "../UserSettings/UserSettings";
 import { connect } from "react-redux";
 
 class App extends React.Component {

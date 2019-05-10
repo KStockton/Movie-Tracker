@@ -4,7 +4,7 @@ import { getTopMovies } from "../../Utility/Helpers/GetTopMovies";
 import { connect } from 'react-redux'
 import { getTopTVShows } from "../../Utility/Helpers/GetTopTVShows";
 import { addTopMovies, addTopTVShows }  from "../../Actions/index";
-import CardContainer from '../CardContainer/CardContainer'
+import CardContainer from '../../Components/CardContainer/CardContainer'
 
 
 
@@ -33,7 +33,6 @@ class Home extends Component{
 
   render () {
 
-    console.log(this.props.topMovies[0])
   return (
     <section className="home-container">
         <h1>home</h1>
