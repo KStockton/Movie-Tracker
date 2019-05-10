@@ -4,7 +4,8 @@ import Card from '../Card/Card'
 
 const CardContainer = ({topMovies}) => {
   console.log('cardC' , topMovies)
-  const card = topMovies.map(movie => {
+  const mainCard = topMovies.pop()
+  const card = topMovies.slice(1).map(movie => {
     return <Card movie={movie} key={movie.id}/>
   })
   return (

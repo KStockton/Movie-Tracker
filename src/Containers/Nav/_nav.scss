@@ -4,7 +4,7 @@ nav {
   background-color: $nav-background-color;
   height: 6em;
   @include displayFlex(center, center, null, row);
-  border-bottom: 0.2em solid #254f61;
+  border-bottom: 0.2em solid $user-form-border-color;
 }
 ul {
   list-style: none;
@@ -28,7 +28,7 @@ a.nav-link, button.nav-link {
   transition: color 0.2s
 }
 a.nav-link:hover, button.nav-link:hover {
-    color: #387690;
+    color: $nav-text-color-hover;
 }
 .main-nav-container {
   width: 40%;

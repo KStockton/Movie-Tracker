@@ -35,7 +35,7 @@ class Home extends Component{
 
   return (
     <section className="home-container">
-        <h1>home</h1>
+        <h2 className="home-title">Home</h2>
         <CardContainer topMovies={this.props.topMovies}/>
     </section>
   )
