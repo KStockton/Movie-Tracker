@@ -4,7 +4,7 @@ import fav from '../../Images/fav.svg'
 
 const  Card = ({movie})  => {
   console.log(movie)
-  const {id,overview, popularity, favorite, posterpath } = movie
+  const { popularity, favorite, posterpath } = movie
   console.log(movie)
   const imagesrc = `https://image.tmdb.org/t/p/w500${posterpath}`
 

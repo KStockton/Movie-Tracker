@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../Nav/Nav";
 import Footer from "../../Components/Footer/Footer";
 import Home from "../Home/Home";
 import { connect } from "react-redux";
