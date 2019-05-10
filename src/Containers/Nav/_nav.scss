@@ -1,10 +1,33 @@
+@import "../../Sass/variables";
+
 nav {
-    background-color: darkgrey;
-    height: 2.5em;
-    display: flex;
-    justify-content: space-between;
+  background-color: $nav-background-color;
+  height: 6em;
+  @include displayFlex(center, center, null, row);
 }
 ul {
-    display:flex;
-    list-style: none;
+  list-style: none;
+  width: 95%;
+  @include displayFlex(space-between, center, center, row);
+}
+nav li {
+  height: 3em;
+  @include displayFlex(center, center, center, row);
+  border-radius: 1em;
+  padding: 0 1em;
+}
+a.nav-link {
+  text-decoration: none;
+  color: $text-color-main;
+  font-size: $nav-button-font-size;
+  font-weight: bold;
+}
+
+.main-nav-container {
+  width: 40%;
+  @include displayFlex(flex-start, center, baseline, row);
+}
+.nav-title {
+  margin: 0 0.8em 0 0;
+  color: $text-color-main;
 }
