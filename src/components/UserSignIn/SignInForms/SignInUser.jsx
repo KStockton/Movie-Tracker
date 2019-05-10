@@ -1,9 +1,10 @@
 import React from "react";
-import { Link , Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 export default function SignInUser(props) {
-  const path = props.status === "Successful" ? "/" : "/login";
-  return (
+  return props.status === "Successful" ? (
+    <Redirect to="/" />
+  ) : (
     <section className="user-sign-in-container">
       <form onSubmit={props.handleLogin} className="sign-in-form login-form">
         <label>Email</label>
@@ -20,9 +21,7 @@ export default function SignInUser(props) {
           onChange={props.handleChange}
           value={props.password}
         />
-        <button type="submit">
-          <Link exact="true" to='/'>Sign In</Link>
-        </button>
+        <button onClick={props.handleLogin}>Sign In</button>
         <button onClick={props.handleToggleForm}>
           New user? Create an Account!
         </button>
