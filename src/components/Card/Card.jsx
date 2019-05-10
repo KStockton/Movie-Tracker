@@ -15,7 +15,6 @@ const Card = ({ movie }) => {
   } = movie;
   console.log(movie);
   const imagesrc = `https://image.tmdb.org/t/p/w500${posterpath}`;
-
   return (
     <div className="card-wrapper">
       <div
