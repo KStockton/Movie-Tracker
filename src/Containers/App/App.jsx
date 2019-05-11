@@ -7,7 +7,7 @@ import Nav from '../Nav/Nav'
 
 class App extends React.Component {
   render() {
-    console.log("rendering");
+    // console.log("rendering");
     return (
       <div className="App">
       <Nav />
