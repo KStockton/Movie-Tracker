@@ -1,5 +1,5 @@
 .card-wrapper {
-  height: 8em;
+  height: 20em;
   width: 14.2em;
   margin: 2em 0.2em;
 
@@ -7,8 +7,7 @@
 }
 
 .card-background {
-  height: 8em;
-  width: 14.2;
+  height: 20em;
   background-size: contain;
   transition: transform 0.3s;
   background-repeat: no-repeat;
@@ -25,16 +24,18 @@
 
 .card-info {
   opacity: 0;
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: flex-end;
   flex-direction: column;
+  justify-content: flex-end;
 }
 .card-info:hover {
   opacity: 1;
   width: 100%;
   height: 100%;
+  transform: rotate(0.01deg);
+
 }
 
 .card-title {
@@ -43,4 +44,36 @@
   overflow: hidden;
   font-size: 1em;
   font-weight: normal;
+}
+
+.favorite-icon {
+pointer-events: none;
+
+}
+
+.card-button {
+  background-color: transparent;
+  border: 0.1em $user-text-color-main solid;
+  padding: 0.5em;
+  font-size: 0.6em;
+  width: 5em;
+  color: $user-text-color-main;
+  background-color: $nav-background-color;
+}
+.card-button:hover {
+  cursor: pointer;
+}
+.card-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1em; 
+}
+.card-rating {
+  color: rgb(44, 175, 44);
+  font-weight: bold;
+  font-size: 0.3em;
+}
+.rating {
+  font-size: 0.3em;
 }

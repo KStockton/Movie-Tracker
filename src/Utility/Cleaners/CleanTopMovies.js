@@ -3,6 +3,7 @@
 
 const cleanTopMovies = (topMovies) =>{
 const films = topMovies.map(topMovie => {
+  console.log(topMovie)
 
   return {
     id: topMovie.id,
