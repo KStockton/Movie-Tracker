@@ -36,7 +36,7 @@ button.nav-link:hover {
 }
 .main-nav-container {
   width: 40%;
-  @include displayFlex(flex-start, center, baseline, row);
+  @include displayFlex(flex-start, center, center, row);
 }
 .nav-title {
   margin: 0 0.8em 0 0;
