@@ -25,25 +25,26 @@ class Home extends Component{
     let topShows = await getTopTVShows(APIkey, incrementedPage);
     this.props.addTopTVShows(topShows)
     this.setState({currentPage: incrementedPage})
-
     // selects a random number - can be used to pick from either array above and display banner
     // const randomNumber = Math.floor(Math.random() * 20) + 1;
-
+    
   }
+  // this.props.favorite()
 
   render () {
 
   return (
     <section className="home-container">
         <h2 className="home-title">Home</h2>
-        <CardContainer topMovies={this.props.topMovies}/>
+        <CardContainer topMovies={this.props.topMovies} user={this.props.user}/>
     </section>
   )
 }
 
 }
 const mapStateToProps = state => ({
-  topMovies : state.topMovies
+  topMovies : state.topMovies,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({

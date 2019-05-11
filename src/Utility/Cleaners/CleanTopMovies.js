@@ -11,7 +11,7 @@ const films = topMovies.map(topMovie => {
     overview: topMovie.overview,
     posterpath: topMovie.poster_path,
     popularity: topMovie.vote_average,
-    favorite: true
+    releaseDate: topMovie.release_date
   }
 })
 return films
