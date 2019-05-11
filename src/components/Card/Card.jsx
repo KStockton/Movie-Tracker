@@ -8,32 +8,36 @@ const Card = ({ movie, user }) => {
   const {
     id,
     overview,
-    popularity,
-    releaseDate,
-    posterpath,
-    image,
+    vote_average,
+    release_date,
+    poster_path,
+    backdrop_path,
     title
   } = movie;
   // console.log(movie);
   // const imagesrc = `https://image.tmdb.org/t/p/w500${posterpath}`;
   
   let handleFavorite = async () => {
+    const checkFavePath = `users/${user.id}/favorites`
+      let result = await postUsers(checkFavePath, "GET")
+      console.log('fav', result)
+    
     const userFavInfo = {
       movie_id: id, 
       user_id: user.id, 
       title: title, 
-      poster_path: posterpath,
-      vote_average: popularity,
-      release_date: releaseDate,
+      poster_path: poster_path,
+      vote_average: vote_average,
+      release_date: release_date,
       overview: overview 
     }
     console.log(userFavInfo)
-
     // console.log(user.length)
     if(user !== undefined){
       console.log(true)
       const favPath = "users/favorites/new"
-      await postUsers(favPath, "POST", userFavInfo)
+     let result =  await postUsers(favPath, "POST", userFavInfo)
+      console.log(result)
     }
   }
   
@@ -42,18 +46,18 @@ const Card = ({ movie, user }) => {
       <div
         className="card-background"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/w500${image})`
+          backgroundImage: `url(https://image.tmdb.org/t/p/w500${backdrop_path})`
         }}
       >
         <article className="card-info">
           <h4 className="card-title">{title}</h4>
-          <span>{popularity}</span>
+          <span>{vote_average}</span>
           <button>More Info</button>
           <button onClick={() => handleFavorite(id)}>Favorite Btn</button>
         </article>
       </div>
 
-      {/* {popularity && <p className="Card-info">Overview {popularity}</p>}
+      {/* {vote_average && <p className="Card-info">Overview {vote_average}</p>}
     <img className="Card-no-favorite" src={favorite ? fav : noFav} alt="favorite"/>
     <img src={imagesrc} alt="poster"/>
     <button>Favorite</button> */}

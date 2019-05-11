@@ -4,7 +4,9 @@ export const userReducer = (state = {}, action) => {
         case 'ADD_USER': 
             return action.user
         case 'REMOVE_USER': 
-        	return action.user
+            return action.user
+        // case 'SET_FAVORITE':
+        //     return action.user.favorites
         default: 
         	return state;
     }

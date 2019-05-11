@@ -5,10 +5,10 @@ const cleanTopTVShows = topTV => {
     return {
       id: shows.id,
       title: shows.name,
-      image: shows.backdrop_path,
+      backdrop_path: shows.backdrop_path,
       overview: shows.overview,
       posterpath: shows.poster_path,
-      popularity: shows.vote_average,
+      vote_average: shows.vote_average,
       favorite: false
     };
   });
