@@ -43,7 +43,14 @@ class UserSignIn extends Component {
 
   userCreation = async (email, name, password) => {
     const url = "users/new";
-    await postUsers(url, "POST", { name, password, email });
+    try {
+      const response = await postUsers(url, "POST", { name, password, email });
+      if (response.error !== undefined) {
+        this.setState({ status: "That email is already in use!" });
+      } else {
+        this.setState({ newUserBool: false });
+      }
+    } catch (e) {}
   };
 
   handleChange = e => {
@@ -54,11 +61,11 @@ class UserSignIn extends Component {
   handleToggleForm = e => {
     e.preventDefault();
     const { newUserBool } = this.state;
-    this.setState({ newUserBool: !newUserBool });
+    this.setState({ newUserBool: !newUserBool, status: "" });
   };
 
   render() {
-    console.log(this.state.status)
+    console.log(this.state.status);
     return !this.state.newUserBool ? (
       <SignInUser
         {...this.state}
