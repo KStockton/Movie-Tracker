@@ -7,11 +7,11 @@ const films = topMovies.map(topMovie => {
   return {
     id: topMovie.id,
     title: topMovie.title,
-    image: topMovie.backdrop_path,
+    backdrop_path: topMovie.backdrop_path,
     overview: topMovie.overview,
-    posterpath: topMovie.poster_path,
-    popularity: topMovie.vote_average,
-    releaseDate: topMovie.release_date
+    poster_path: topMovie.poster_path,
+    vote_average: topMovie.vote_average,
+    release_date: topMovie.release_date
   }
 })
 return films
