@@ -28,6 +28,7 @@ export default function SignInUser(props) {
             className="user-input"
           />
         </div>
+        <span className="status-msg">{props.status}</span>
         <div className="button-container">
           <button
             className="user-form-button sign-in-button"

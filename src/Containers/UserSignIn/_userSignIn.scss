@@ -10,7 +10,8 @@
 
 .login-form {
   @include displayFlex(space-around, center, center, column);
-  height: 15em;
+  height: 18em;
+  width: 15em;
   padding: 1em;
   background-color: #112731;
   border-radius: 0.5em;
@@ -34,10 +35,11 @@
 }
 .sign-in-button {
   font-size: 0.8em;
-  width: 5em;
-  height: 1.5em;
+  width: 10em;
+  height: 2.5em;
   border-radius: 1em;
   border: solid 0.15em $user-form-border-color;
+  margin: 0.4em;
 }
 .sign-in-button:focus,
 .sign-in-button:hover {
@@ -68,3 +70,13 @@
   color: $user-text-color-hover;
 }
 
+.status-msg {
+  font-size: 0.7em;
+  text-decoration: underline;
+  padding: 0.2em;
+  color: $user-text-color-hover;
+}
+
+label { 
+  font-size: 0.8em;
+}

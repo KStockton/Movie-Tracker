@@ -18,23 +18,49 @@ nav li {
   padding: 0 1em;
 }
 
-a.nav-link, button.nav-link {
+a.nav-link,
+button.nav-link {
   text-decoration: none;
   color: $text-color-main;
   font-size: $nav-button-font-size;
   font-weight: bold;
+  font-size: 1em;
   background-color: transparent;
-  border: none;
-  transition: color 0.2s
+  border: 0.1em $user-form-border-color solid;
+  padding: 0.5em;
+  transition: color 0.2s;
 }
-a.nav-link:hover, button.nav-link:hover {
-    color: $nav-text-color-hover;
+a.nav-link:hover,
+button.nav-link:hover {
+  color: $nav-text-color-hover;
 }
 .main-nav-container {
   width: 40%;
-  @include displayFlex(flex-start, center, baseline, row);
+  @include displayFlex(flex-start, center, center, row);
 }
 .nav-title {
   margin: 0 0.8em 0 0;
   color: $text-color-main;
+}
+
+.nav-signed-in-user {
+  color: $text-color-main;
+  padding: 1em;
+}
+.nav-user-name {
+  color: $nav-text-color-hover;
+}
+.nav-signed-in-container {
+}
+.nav-title.signout-button {
+  background-color: transparent;
+  border: 0.1em $user-form-border-color solid;
+  padding: 0.5em;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.nav-title.signout-button:hover {
+  cursor: pointer;
+  color: $nav-text-color-hover;
 }
