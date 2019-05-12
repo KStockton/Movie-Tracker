@@ -8,6 +8,14 @@ import { setUserFavorites } from "../../Actions/";
 // import fav from "../../Images/fav.svg";
 
 class Card extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      favorited : this.props.movie.favorited
+    };
+  }
+
   handleFavorite = async () => {
     const { movie, user } = this.props;
     const {
@@ -27,12 +35,10 @@ class Card extends React.Component {
       release_date: release_date,
       overview: overview
     };
-    if (
-      this.props.user !== undefined &&
-      this.props.user.favorites.filter(
-        movie => movie.movie_id === userFavInfo.movie_id
-      ).length === 0
-    ) {
+    let uniqueMovie = this.props.user.favorites.filter(
+      movie => movie.movie_id === userFavInfo.movie_id
+    );
+    if (this.props.user !== undefined && uniqueMovie.length === 0) {
       const favPath = "users/favorites/new";
       let result = await postUsers(favPath, "POST", userFavInfo);
       const checkFavePath = `users/${user.id}/favorites`;
@@ -40,22 +46,25 @@ class Card extends React.Component {
       this.props.setUserFavorites(faves.data);
       return result;
     } else {
-
-        const path = `users/${this.props.user.id}/favorites/${
-        userFavInfo.movie_id}`;
-        let result = await postUsers(path, "DELETE", 
-        {id: this.props.user.id, movie_id: userFavInfo.movie_id});
-        const checkFavePath = `users/${user.id}/favorites`;
-        let faves = await postUsers(checkFavePath, "GET");
-        this.props.setUserFavorites(faves.data);
-        return result;
-      };
-  
+      const path = `users/${this.props.user.id}/favorites/${
+        userFavInfo.movie_id
+      }`;
+      let result = await postUsers(path, "DELETE", {
+        id: this.props.user.id,
+        movie_id: userFavInfo.movie_id
+      });
+      const checkFavePath = `users/${user.id}/favorites`;
+      let faves = await postUsers(checkFavePath, "GET");
+      this.props.setUserFavorites(faves.data);
+      this.setState({ favorited: !this.props.movie.favorited });
+      return result;
     }
+  };
+  
   render() {
     const { name } = this.props.user;
     const { vote_average, poster_path } = this.props.movie;
-
+    console.log("rendering");
     return (
       <div className="card-wrapper">
         <div
@@ -68,7 +77,10 @@ class Card extends React.Component {
             <section className="card-button-container">
               <button className="card-button"> More Info</button>
               {name === undefined ? (
-                <NavLink to="/login" className="card-button">
+                <NavLink
+                  to="/login"
+                  className="card-button"
+                >
                   Add to List
                 </NavLink>
               ) : (
