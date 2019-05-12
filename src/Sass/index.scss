@@ -19,7 +19,9 @@
 button:focus, link:focus {
   outline: none;
 }
-
+html, body, #app, #app>div {
+  height: 100%
+}
 body {
   margin: 0;
   padding: 0;
