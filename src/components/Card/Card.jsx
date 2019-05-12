@@ -4,16 +4,11 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { setUserFavorites } from "../../Actions/";
 
-// import noFav from "../../Images/noFav.svg";
-// import fav from "../../Images/fav.svg";
-
 class Card extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      favorited : this.props.movie.favorited
-    };
+    this.state = {};
   }
 
   handleFavorite = async () => {
@@ -35,36 +30,52 @@ class Card extends React.Component {
       release_date: release_date,
       overview: overview
     };
-    let uniqueMovie = this.props.user.favorites.filter(
+    const uniqueMovie = this.props.user.favorites.filter(
       movie => movie.movie_id === userFavInfo.movie_id
     );
     if (this.props.user !== undefined && uniqueMovie.length === 0) {
       const favPath = "users/favorites/new";
-      let result = await postUsers(favPath, "POST", userFavInfo);
-      const checkFavePath = `users/${user.id}/favorites`;
-      let faves = await postUsers(checkFavePath, "GET");
-      this.props.setUserFavorites(faves.data);
-      return result;
+      await postUsers(favPath, "POST", userFavInfo);
+      this.setFavorites(user);
     } else {
       const path = `users/${this.props.user.id}/favorites/${
         userFavInfo.movie_id
       }`;
-      let result = await postUsers(path, "DELETE", {
+      await postUsers(path, "DELETE", {
         id: this.props.user.id,
         movie_id: userFavInfo.movie_id
       });
-      const checkFavePath = `users/${user.id}/favorites`;
-      let faves = await postUsers(checkFavePath, "GET");
-      this.props.setUserFavorites(faves.data);
-      this.setState({ favorited: !this.props.movie.favorited });
-      return result;
+      this.setFavorites(user);
     }
   };
-  
+
+  setFavorites = async user => {
+    const checkFavePath = `users/${user.id}/favorites`;
+    let faves = await postUsers(checkFavePath, "GET");
+    this.props.setUserFavorites(faves.data);
+  };
+
+  checkFavorite = () => {
+    const favoriteIDs = this.getFavoriteIDs();
+    if (favoriteIDs.includes(this.props.movie.id)) {
+      const displayMovie = { ...this.props.movie, favorited: true };
+      return displayMovie;
+    } else {
+      const displayMovie = { ...this.props.movie };
+      return displayMovie;
+    }
+  };
+
+  getFavoriteIDs = () => {
+    return this.props.user.favorites !== undefined
+      ? this.props.user.favorites.map(movie => movie.movie_id)
+      : [];
+  };
+
   render() {
+    const displayMovie = this.checkFavorite();
     const { name } = this.props.user;
-    const { vote_average, poster_path } = this.props.movie;
-    console.log("rendering");
+    const { vote_average, poster_path, favorited } = displayMovie;
     return (
       <div className="card-wrapper">
         <div
@@ -80,6 +91,7 @@ class Card extends React.Component {
                 <NavLink
                   to="/login"
                   className="card-button"
+                  style={{ backgroundColor: favorited ? "red" : "blue" }}
                 >
                   Add to List
                 </NavLink>
@@ -88,6 +100,7 @@ class Card extends React.Component {
                   to="/"
                   className="card-button"
                   onClick={() => this.handleFavorite()}
+                  style={{ backgroundColor: favorited ? "red" : "blue" }}
                 >
                   Add to List
                 </NavLink>
@@ -103,7 +116,8 @@ class Card extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  topMovies: state.topMovies
 });
 const mapDispatchToProps = dispatch => ({
   setUserFavorites: user => dispatch(setUserFavorites(user))
