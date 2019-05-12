@@ -14,7 +14,7 @@ class UserSignIn extends Component {
       password: "",
       name: "",
       newUserBool: false,
-      user: {},
+      user: {favorites: []},
       status: ""
     };
   }
@@ -37,16 +37,14 @@ class UserSignIn extends Component {
       const checkFavePath = `users/${data.id}/favorites`
       let faves = await postUsers(checkFavePath, "GET")
       this.props.addUser(data);
-      
-      //favorites are saving in reduxStore
-    this.props.user.favorites = faves.data
-
+      this.props.user.favorites = faves.data
       this.setState({ status: "Successful" });
     } catch (e) {
       this.setState({ status: "The username or password is incorrect!" });
     }
   };
 
+  
   userCreation = async (email, name, password) => {
     const url = "users/new";
     try {
@@ -58,6 +56,7 @@ class UserSignIn extends Component {
       }
     } catch (e) {}
   };
+
 
   handleChange = e => {
     const { value, name } = e.target;
@@ -94,7 +93,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addUser: user => dispatch(addUser(user))
-  // setFavorites: user => dispatch(setFavorites(user))
 });
 
 export default connect(

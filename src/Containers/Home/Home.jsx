@@ -14,7 +14,7 @@ class Home extends Component{
     this.state = {
       topMovies: [],
       currentPage: 0,
-      topTVShows: [],
+      topTVShows: []
     }
   }
   async componentDidMount() {
@@ -35,7 +35,7 @@ class Home extends Component{
 
   return (
     <section className="home-container">
-        {/* <h2 className="home-title">Home</h2> */}
+        <h2 className="home-title">Top Movies</h2>
         {this.props.topMovies.length > 0 ? <CardContainer topMovies={this.props.topMovies} user={this.props.user}/> : <div></div>}
     </section>
   )
