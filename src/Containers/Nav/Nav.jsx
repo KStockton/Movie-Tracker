@@ -4,12 +4,6 @@ import { connect } from "react-redux";
 import { removeUser } from "../../Actions";
 
 class Nav extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   render() {
     return this.props.user.name === undefined ? (
       <nav>

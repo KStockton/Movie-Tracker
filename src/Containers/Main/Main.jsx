@@ -5,13 +5,6 @@ import { connect } from "react-redux";
 
 
 class Main extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-  async componentDidMount() {}
-
   render() {
     return (
       <main>
