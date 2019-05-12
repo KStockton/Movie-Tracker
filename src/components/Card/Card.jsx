@@ -19,10 +19,7 @@ const Card = ({ movie, user }) => {
   // const imagesrc = `https://image.tmdb.org/t/p/w500${posterpath}`;
 
   let handleFavorite = async () => {
-    const checkFavePath = `users/${user.id}/favorites`;
-    let result = await postUsers(checkFavePath, "GET");
-    console.log("fav", result);
-
+        
     const userFavInfo = {
       movie_id: id,
       user_id: user.id,

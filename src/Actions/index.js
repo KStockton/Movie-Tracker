@@ -18,8 +18,7 @@ export const removeUser = user => ({
   user
 })
 
-// export const setFaves = (favorites, user_id) => ({
+// export const setFavorites = (favorites) => ({
 //   type: "SET_FAVORITE",
-//   favorites,
-//   user_id
+//   favorites
 // })
