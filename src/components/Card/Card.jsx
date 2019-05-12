@@ -1,5 +1,6 @@
 import React from "react";
 import { postUsers } from "../../Utility/Fetches/PostUsers";
+import { NavLink } from 'react-router-dom'
 
 // import noFav from "../../Images/noFav.svg";
 // import fav from "../../Images/fav.svg";
@@ -47,10 +48,9 @@ const Card = ({ movie, user }) => {
         <article className="card-info">
           <section className="card-button-container">
             <button className="card-button"> More Info</button>
-
-            <button className="card-button" onClick={() => handleFavorite(id)}>
+            { user.name === undefined ?  <NavLink to="/login"  className="card-button"> Add to List</NavLink>    : <NavLink className="card-button" onClick={() => handleFavorite()}>
               Add to List
-            </button>
+            </NavLink >}
             <span className="rating">Rating: <span className="card-rating">{vote_average}</span></span>
           </section>
           
