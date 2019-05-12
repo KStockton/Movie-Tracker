@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { postUsers } from "../../Utility/Fetches/PostUsers";
-import { addUser } from "../../Actions/index";
+import { addUser, setFavorites } from "../../Actions/index";
 import { connect } from "react-redux";
 import SignInUser from "./SignInForms/SignInUser";
 import NewUser from "./SignInForms/NewUser";
@@ -28,13 +28,19 @@ class UserSignIn extends Component {
       return await this.userSignIn(email, password);
     }
   };
-
+  
   userSignIn = async (email, password) => {
     const url = "users";
     try {
       const userResponse = await postUsers(url, "POST", { password, email });
       const { data } = userResponse;
+      const checkFavePath = `users/${data.id}/favorites`
+      let faves = await postUsers(checkFavePath, "GET")
       this.props.addUser(data);
+      
+      //favorites are saving in reduxStore
+    this.props.user.favorites = faves.data
+
       this.setState({ status: "Successful" });
     } catch (e) {
       this.setState({ status: "The username or password is incorrect!" });
@@ -65,7 +71,6 @@ class UserSignIn extends Component {
   };
 
   render() {
-    console.log(this.state.status);
     return !this.state.newUserBool ? (
       <SignInUser
         {...this.state}
@@ -89,6 +94,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addUser: user => dispatch(addUser(user))
+  // setFavorites: user => dispatch(setFavorites(user))
 });
 
 export default connect(
