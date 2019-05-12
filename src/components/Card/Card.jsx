@@ -16,7 +16,6 @@ class Card extends React.Component {
       vote_average,
       release_date,
       poster_path,
-      backdrop_path,
       title
     } = movie;
     const userFavInfo = {
@@ -30,19 +29,29 @@ class Card extends React.Component {
     };
     if (
       this.props.user !== undefined &&
-      this.props.user.favorites.filter(movie => movie.movie_id === userFavInfo.movie_id)
-        .length === 0
+      this.props.user.favorites.filter(
+        movie => movie.movie_id === userFavInfo.movie_id
+      ).length === 0
     ) {
-      console.log(movie.movie_id)
-
       const favPath = "users/favorites/new";
       let result = await postUsers(favPath, "POST", userFavInfo);
       const checkFavePath = `users/${user.id}/favorites`;
       let faves = await postUsers(checkFavePath, "GET");
-      this.props.setUserFavorites(faves.data)
+      this.props.setUserFavorites(faves.data);
       return result;
+    } else {
+
+        const path = `users/${this.props.user.id}/favorites/${
+        userFavInfo.movie_id}`;
+        let result = await postUsers(path, "DELETE", 
+        {id: this.props.user.id, movie_id: userFavInfo.movie_id});
+        const checkFavePath = `users/${user.id}/favorites`;
+        let faves = await postUsers(checkFavePath, "GET");
+        this.props.setUserFavorites(faves.data);
+        return result;
+      };
+  
     }
-  };
   render() {
     const { name } = this.props.user;
     const { vote_average, poster_path } = this.props.movie;
