@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { setUserFavorites } from "../../Actions/";
 
+
 class Card extends React.Component {
   constructor(props) {
     super(props);
@@ -75,7 +76,7 @@ class Card extends React.Component {
   render() {
     const displayMovie = this.checkFavorite();
     const { name } = this.props.user;
-    const { vote_average, poster_path, favorited } = displayMovie;
+    const { vote_average, poster_path, favorited, id } = displayMovie;
     return (
       <div className="card-wrapper">
         <div
@@ -86,7 +87,9 @@ class Card extends React.Component {
         >
           <article className="card-info">
             <section className="card-button-container">
-              <button className="card-button"> More Info</button>
+            <NavLink to={{pathname:`/Movie/${id}`, state:{movie: this.props.movie}}} className="card-button" > More Info</NavLink>
+
+
               {name === undefined ? (
                 <NavLink
                   to="/login"
