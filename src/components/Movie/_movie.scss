@@ -82,7 +82,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.5s color, background-color;
+    transition: 0.5s color;
+    transition: 0.5s background;
+
 }
 .go-back-btn:hover {
     color: #E50615;
