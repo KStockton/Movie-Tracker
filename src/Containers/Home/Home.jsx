@@ -27,7 +27,7 @@ class Home extends Component {
     console.log("rendered");
     return (
       <section className="home-container">
-        <h2 className="home-title">Top Movies</h2>
+        <h2 className="home-title"></h2>
         {this.props.topMovies.length > 0 ? (
           <CardContainer
             topMovies={this.props.topMovies}
