@@ -1,17 +1,17 @@
 .card-wrapper {
   height: 20em;
-  width: 14.2em;
-  margin: 2em 0.2em;
-
+  margin: 0em 0.5em;
   position: relative;
 }
 
 .card-background {
-  height: 20em;
+  height: 18.2em;
+  width: 12.1em;
+  outline: grey 0.1em solid;
   background-size: contain;
   transition: transform 0.3s;
   background-repeat: no-repeat;
-  // position: absolute;
+  // border: grey solid 2px;
 }
 .card-background:hover {
   transform: scale(1.3);

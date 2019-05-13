@@ -76,7 +76,7 @@ class Card extends React.Component {
   render() {
     const displayMovie = this.checkFavorite();
     const { name } = this.props.user;
-    const { vote_average, poster_path, favorited, id } = displayMovie;
+    const { poster_path, favorited, id } = displayMovie;
     return (
       <div className="card-wrapper">
         <div
@@ -108,9 +108,6 @@ class Card extends React.Component {
                   Add to List
                 </NavLink>
               )}
-              <span className="rating">
-                Rating: <span className="card-rating">{vote_average}</span>
-              </span>
             </section>
           </article>
         </div>
