@@ -39,8 +39,8 @@
 }
 .movie-card-info {
   width: 50%;
-  padding:  4em 0em;
   text-align: left;
+  padding: 2em 4em;
   color: rgb(235, 235, 235);
   display: flex;
   flex-direction: column;
@@ -78,7 +78,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.5s color, background-color;
+    transition: 0.5s color;
+    transition: 0.5s background;
+
 }
 .go-back-btn:hover {
     color: #E50615;

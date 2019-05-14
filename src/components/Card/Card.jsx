@@ -3,17 +3,17 @@ import { postUsers } from "../../Utility/Fetches/PostUsers";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { setUserFavorites } from "../../Actions/";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHeart,
+  faArrowAltCircleRight
+} from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
+library.add(faArrowAltCircleRight, faHeart);
 
 
-
-class Card extends Component {
-  constructor(props) {
-     super(props);
-    this.state = {
-
-    };
-  }
+class Card extends React.Component {
 
   handleFavorite = async () => {
     const { movie, user } = this.props;
@@ -34,9 +34,11 @@ class Card extends Component {
       release_date: release_date,
       overview: overview
     };
+
     const uniqueMovie = this.props.user.favorites.filter(
       movie => movie.movie_id === userFavInfo.movie_id
     );
+
     if (this.props.user !== undefined && uniqueMovie.length === 0) {
       const favPath = "users/favorites/new";
       await postUsers(favPath, "POST", userFavInfo);
@@ -61,6 +63,7 @@ class Card extends Component {
 
   checkFavorite = () => {
     const favoriteIDs = this.getFavoriteIDs();
+    console.log(favoriteIDs)
     if (favoriteIDs.includes(this.props.movie.id)) {
       const displayMovie = { ...this.props.movie, favorited: true };
       return displayMovie;
@@ -90,27 +93,39 @@ class Card extends Component {
         >
           <article className="card-info">
             <section className="card-button-container">
-            <NavLink to={{pathname:`/Movie/${id}`, state:{movie: this.props.movie}}} className="card-button" > More Info</NavLink>
-
-
               {name === undefined ? (
                 <NavLink
                   to="/login"
                   className="card-button"
-                  style={{ backgroundColor: favorited ? "green" : "black" }}
+                  style={{ color: favorited ? "red" : "grey" }}
                 >
-                  Add to List
+                  <FontAwesomeIcon className="favorite-icon" icon="heart" />
                 </NavLink>
               ) : (
-                <NavLink
-                  to="/"
+                <button
                   className="card-button"
                   onClick={() => this.handleFavorite()}
-                  style={{ backgroundColor: favorited ? "green" : "black" }}
+
+                  style={{ color: favorited ? "red" : "grey" }}
                 >
-                  Add to List
-                </NavLink>
+                  <FontAwesomeIcon
+                    icon="heart"
+                    className="favorite-icon"
+                  />
+                </button>
               )}
+              <NavLink
+                to={{
+                  pathname: `/Movie/${id}`,
+                  state: { movie: this.props.movie }
+                }}
+                className="card-button"
+              >
+                <FontAwesomeIcon
+                  className="more-info-icon"
+                  icon="arrow-alt-circle-right"
+                />
+              </NavLink>
             </section>
           </article>
         </div>

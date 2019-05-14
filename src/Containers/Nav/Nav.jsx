@@ -36,12 +36,18 @@ class Nav extends Component {
                 Home
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/favorites" className="nav-link">
+                Favorites
+              </NavLink>
+            </li>
           </div>
           <section className="sign-in-container" />
 
           <li className="nav-signed-in-container">
             <span className="nav-signed-in-user">
-              Signed in as: <span className="nav-user-name">{this.props.user.name} </span>
+              Signed in as:{" "}
+              <span className="nav-user-name">{this.props.user.name} </span>
             </span>
             <button
               className="nav-title signout-button"
