@@ -1,22 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 import Home from "../Home/Home";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 
 
-class Main extends Component {
-  render() {
+const Main = () => {
     return (
       <main>
         <Home />
       </main>
     );
-  }
 }
 
 const mapStateToProps = state => ({
   user: state.user
 });
 
-
+Main.propTypes = {
+  user: PropTypes.object
+}
 
 export default connect(mapStateToProps)(Main)

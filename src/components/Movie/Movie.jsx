@@ -7,6 +7,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 library.add(faArrowLeft)
 
 export const Movie = props => {
+  console.log(props)
   const {
     overview,
     backdrop_path,
@@ -15,10 +16,12 @@ export const Movie = props => {
     title,
     vote_average
   } = props.location.state.movie;
+  
   const releaseDate = release_date.substring(0, 4);
   const rating = vote_average * 10;
   const posterUrl = `https://image.tmdb.org/t/p/w500${poster_path}`;
   const backDropUrl = `https://image.tmdb.org/t/p/w1280${backdrop_path}`;
+  
   return (
     <article className="movie-card">
       <div className="movie-card-background">

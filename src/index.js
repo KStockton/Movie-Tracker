@@ -10,10 +10,6 @@ import rootReducer from "./Reducers";
 import { BrowserRouter as Router } from "react-router-dom";
 
 
-// const allReducers = combineReducers({
-
-// })
-
 const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(

@@ -1,15 +1,18 @@
-import React from "react";
+import React, { Component} from "react";
 import { postUsers } from "../../Utility/Fetches/PostUsers";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { setUserFavorites } from "../../Actions/";
+import PropTypes from 'prop-types';
 
 
-class Card extends React.Component {
+
+class Card extends Component {
   constructor(props) {
-    super(props);
+     super(props);
+    this.state = {
 
-    this.state = {};
+    };
   }
 
   handleFavorite = async () => {
@@ -94,7 +97,7 @@ class Card extends React.Component {
                 <NavLink
                   to="/login"
                   className="card-button"
-                  style={{ backgroundColor: favorited ? "red" : "blue" }}
+                  style={{ backgroundColor: favorited ? "green" : "black" }}
                 >
                   Add to List
                 </NavLink>
@@ -103,7 +106,7 @@ class Card extends React.Component {
                   to="/"
                   className="card-button"
                   onClick={() => this.handleFavorite()}
-                  style={{ backgroundColor: favorited ? "red" : "blue" }}
+                  style={{ backgroundColor: favorited ? "green" : "black" }}
                 >
                   Add to List
                 </NavLink>
@@ -122,6 +125,13 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setUserFavorites: user => dispatch(setUserFavorites(user))
 });
+
+Card.propTypes = {
+  movie: PropTypes.object,
+  user: PropTypes.object,
+  topMovies: PropTypes.array,
+  setUserFavorites: PropTypes.func
+}
 
 export default connect(
   mapStateToProps,

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { removeUser } from "../../Actions";
+import PropTypes from 'prop-types';
+
 
 class Nav extends Component {
   render() {
@@ -60,6 +62,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   removeUser: user => dispatch(removeUser(user))
 });
+
+Nav.propTypes = {
+  user: PropTypes.object,
+  removeUser: PropTypes.func
+}
 
 export default connect(
   mapStateToProps,
