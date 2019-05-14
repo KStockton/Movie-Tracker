@@ -18,7 +18,6 @@ class App extends React.Component {
           <Route path="/login" component={UserSignIn} />
           <Route path="/movie/:id" component={Movie} />
           <Route path="/favorites" component={Favorites} />
-    
         </Switch>
       </div>
     );
