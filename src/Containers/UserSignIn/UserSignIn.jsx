@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import { postUsers } from "../../Utility/Fetches/PostUsers";
 import { addUser } from "../../Actions/index";
 import { connect } from "react-redux";
-import SignInUser from "./SignInForms/SignInUser";
+import {SignInUser} from "./SignInForms/SignInUser";
 import NewUser from "./SignInForms/NewUser";
 import PropTypes from 'prop-types';
 
 
 class UserSignIn extends Component {
   constructor(props) {
-    console.log(props)
     super(props);
 
     this.state = {

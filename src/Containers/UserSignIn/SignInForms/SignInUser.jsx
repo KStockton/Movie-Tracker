@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 
-export default function SignInUser(props) {
+export const SignInUser = (props) => {
   return props.status === "Successful" ? (
     <Redirect to="/" />
   ) : (
