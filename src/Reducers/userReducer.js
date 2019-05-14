@@ -6,7 +6,6 @@ export const userReducer = (state = {favorites: []}, action) => {
         case 'REMOVE_USER': 
             return action.user
         case 'SET_USER_FAVORITE':
-        console.log(action.user)
             return { ...state, favorites: action.user}
         default: 
         	return state;

@@ -9,7 +9,6 @@ import {Movie} from '../../Components/Movie/Movie';
 
 class App extends React.Component {
   render() {
-    // console.log("rendering");
     return (
       <div className="App">
       <Nav />
