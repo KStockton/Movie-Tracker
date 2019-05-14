@@ -16,4 +16,4 @@ export const removeUser = user => ({
 export const setUserFavorites = (user) => ({
   type: "SET_USER_FAVORITE",
   user
-})
+}) 
