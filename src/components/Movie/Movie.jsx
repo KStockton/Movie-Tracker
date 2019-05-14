@@ -7,7 +7,6 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 library.add(faArrowLeft)
 
 export const Movie = props => {
-  console.log(props);
   const {
     overview,
     backdrop_path,
@@ -50,3 +49,4 @@ export const Movie = props => {
     </article>
   );
 };
+

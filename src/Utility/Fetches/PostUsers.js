@@ -4,7 +4,6 @@ const fetchConfig = (method, body) => ({
   body: JSON.stringify(body)
 });
 const postUsers = async (url, method, body) => {
-  console.log(body)
   const response = await fetch(
     `http://localhost:3000/api/${url}`,
     fetchConfig(method, body)

@@ -1,42 +1,34 @@
 import React, { Component } from "react";
-import { APIkey } from "../../Utility/Config/Key";
-import { getTopMovies } from "../../Utility/Helpers/GetTopMovies";
 import { connect } from "react-redux";
 import { addTopMovies } from "../../Actions/index";
 import CardContainer from "../../Components/CardContainer/CardContainer";
 
-class Home extends Component {
-  constructor() {
-    super();
-    this.state = {
-      topMovies: [],
-      currentPage: 0,
-      moviesArray: []
-    };
-  }
-  async componentDidMount() {
-    const { currentPage } = this.state;
-    let incrementedPage = currentPage + 1;
-    let movies = await getTopMovies(APIkey, incrementedPage);
-    this.props.addTopMovies(movies);
-  }
+export class Favorites extends Component {
+  componentDidMount() {}
 
   render() {
+    console.log(this.props.topMovies);
+    console.log(this.props.user.favorites);
+    console.log(this.props.user.name);
     return (
       <section className="home-container">
         <h2 className="home-title"> </h2>
-        {this.props.topMovies.length > 0 ? (
+        {this.props.user.name !== undefined &&
+        this.props.user.favorites.length !== undefined ? (
           <CardContainer
-            topMovies={this.props.topMovies}
+            topMovies={this.props.user.favorites}
             user={this.props.user}
           />
         ) : (
-          <div />
+          <div className="no-favorites">
+            Log in to see favorites!
+          </div>
         )}
       </section>
     );
   }
 }
+
 const mapStateToProps = state => ({
   topMovies: state.topMovies,
   user: state.user
@@ -49,4 +41,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home);
+)(Favorites);

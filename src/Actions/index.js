@@ -3,11 +3,6 @@ export const addTopMovies = topMovies => ({
   topMovies
 });
 
-export const addTopTVShows = topTVShows => ({
-  type: "ADD_TOP_TV_SHOWS",
-  topTVShows
-});
-
 export const addUser = user => ({
   type: "ADD_USER",
   user
