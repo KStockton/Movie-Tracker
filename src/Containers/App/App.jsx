@@ -8,7 +8,7 @@ import { Movie } from "../../Components/Movie/Movie";
 import Favorites from "../Favorites/Favorites.jsx";
 
 
-class App extends React.Component {
+export class App extends React.Component {
   render() {
     return (
       <div className="App">
