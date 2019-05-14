@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addTopMovies } from "../../Actions/index";
-import CardContainer from "../../Components/CardContainer/CardContainer";
+import { CardContainer } from "../../Components/CardContainer/CardContainer";
 
 export class Favorites extends Component {
 
