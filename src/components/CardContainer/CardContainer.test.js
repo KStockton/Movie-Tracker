@@ -4,6 +4,7 @@ import { shallow } from 'enzyme'
 import * as MD from '../../Utility/MockData/MockData'
 
 
+
 const mockUser = {
   id: 3,
   email: "weOn@gmail",
@@ -23,4 +24,5 @@ describe('CardContainer', () => {
   it('CardContainer component should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
+
 })

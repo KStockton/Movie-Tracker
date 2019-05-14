@@ -2,7 +2,7 @@ import React, { Component} from "react";
 import { postUsers } from "../../Utility/Fetches/PostUsers";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { setUserFavorites } from "../../Actions/";
+import { setUserFavorites } from "../../Actions";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 library.add(faArrowAltCircleRight, faHeart);
 
 
-class Card extends React.Component {
+export class Card extends Component {
 
   handleFavorite = async () => {
     const { movie, user } = this.props;
@@ -63,7 +63,7 @@ class Card extends React.Component {
 
   checkFavorite = () => {
     const favoriteIDs = this.getFavoriteIDs();
-    console.log(favoriteIDs)
+
     if (favoriteIDs.includes(this.props.movie.id)) {
       const displayMovie = { ...this.props.movie, favorited: true };
       return displayMovie;

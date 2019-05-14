@@ -3,6 +3,8 @@ import React from "react";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { Card } from "../../Containers/Card/Card";
+import PropTypes from 'prop-types'
 
 library.add(faArrowLeft)
 
@@ -53,3 +55,6 @@ export const Movie = props => {
   );
 };
 
+Card.propTypes = {
+  movie: PropTypes.object
+}
