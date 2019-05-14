@@ -3,13 +3,14 @@ import { APIkey } from "../../Utility/Config/Key";
 import { getTopMovies } from "../../Utility/Helpers/GetTopMovies";
 import { connect } from "react-redux";
 import { addTopMovies } from "../../Actions/index";
-import { CardContainer } from "../../Components/CardContainer/CardContainer";
+import CardContainer from "../../Components/CardContainer/CardContainer";
 
 export class Home extends Component {
   constructor() {
     super();
     this.state = {
-      topMovies: []
+      topMovies: [],
+      moviesArray: []
     };
   }
   async componentDidMount() {
@@ -35,12 +36,12 @@ export class Home extends Component {
     );
   }
 }
-export const mapStateToProps = state => ({
+const mapStateToProps = state => ({
   topMovies: state.topMovies,
   user: state.user
 });
 
-export const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   addTopMovies: movies => dispatch(addTopMovies(movies))
 });
 

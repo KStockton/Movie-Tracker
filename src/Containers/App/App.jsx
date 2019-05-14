@@ -1,6 +1,6 @@
 import React from "react";
-import { Main } from "../Main/Main.jsx";
-import { Switch, Route } from "react-router-dom";
+import Main from "../Main/Main.jsx";
+import { Switch, Route, Redirect } from "react-router-dom";
 import UserSignIn from "../UserSignIn/UserSignIn";
 import { connect } from "react-redux";
 import Nav from "../Nav/Nav";
