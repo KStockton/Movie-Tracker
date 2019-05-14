@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { APIkey } from "../../Utility/Config/Key";
 import { getTopMovies } from "../../Utility/Helpers/GetTopMovies";
 import { connect } from "react-redux";
-import { getTopTVShows } from "../../Utility/Helpers/GetTopTVShows";
-import { addTopMovies, addTopTVShows } from "../../Actions/index";
+import { addTopMovies } from "../../Actions/index";
 import CardContainer from "../../Components/CardContainer/CardContainer";
 
 class Home extends Component {
@@ -12,7 +11,6 @@ class Home extends Component {
     this.state = {
       topMovies: [],
       currentPage: 0,
-      topTVShows: [],
       moviesArray: []
     };
   }
@@ -24,10 +22,9 @@ class Home extends Component {
   }
 
   render() {
-    console.log("rendered");
     return (
       <section className="home-container">
-        <h2 className="home-title"></h2>
+        <h2 className="home-title">Top Movies</h2>
         {this.props.topMovies.length > 0 ? (
           <CardContainer
             topMovies={this.props.topMovies}
@@ -46,8 +43,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addTopMovies: movies => dispatch(addTopMovies(movies)),
-  addTopTVShows: topShows => dispatch(addTopTVShows(topShows))
+  addTopMovies: movies => dispatch(addTopMovies(movies))
 });
 
 export default connect(

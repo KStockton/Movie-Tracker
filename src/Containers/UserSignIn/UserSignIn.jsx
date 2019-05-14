@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { postUsers } from "../../Utility/Fetches/PostUsers";
-import { addUser, setFavorites } from "../../Actions/index";
+import { addUser } from "../../Actions/index";
 import { connect } from "react-redux";
 import SignInUser from "./SignInForms/SignInUser";
 import NewUser from "./SignInForms/NewUser";
