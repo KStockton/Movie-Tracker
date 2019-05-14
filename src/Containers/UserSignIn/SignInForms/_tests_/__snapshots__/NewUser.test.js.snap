@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewUser NewUser component should match the snapshot 1`] = `
+<section
+  className="user-sign-in-container"
+>
+  <div
+    className="user-sign-in-background"
+  >
+    <img
+      alt="movies"
+      src="https://i.pinimg.com/originals/86/f1/99/86f199d0c6f5cedd14c121164fa5fafc.jpg"
+    />
+  </div>
+  <form
+    className="create-account-form login-form"
+  >
+    <h3
+      className="user-form-title"
+    >
+      NEW USER
+    </h3>
+    <div
+      className="input-container"
+    >
+      <input
+        className="user-input"
+        maxLength="24"
+        minLength="1"
+        name="name"
+        placeholder="Name..."
+        type="text"
+      />
+    </div>
+    <div
+      className="input-container"
+    >
+      <input
+        className="user-input"
+        maxLength="24"
+        minLength="2"
+        name="email"
+        placeholder="Email..."
+        type="email"
+      />
+    </div>
+    <div
+      className="input-container"
+    >
+      <input
+        className="user-input"
+        maxLength="12"
+        minLength="8"
+        name="password"
+        placeholder="Password..."
+        type="password"
+      />
+    </div>
+    <span
+      className="status-msg"
+    />
+    <div
+      className="button-container"
+    >
+      <button
+        className="user-form-button sign-in-button"
+        type="submit "
+      >
+        Create Account
+      </button>
+      <button
+        className="user-form-link"
+      >
+        Already have an account? Sign in!
+      </button>
+    </div>
+  </form>
+</section>
+`;
