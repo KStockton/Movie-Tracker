@@ -1,3 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card Card component should match the snapshot 1`] = `undefined`;
+exports[`Card Card component should match the snapshot 1`] = `
+<div
+  className="card-wrapper"
+>
+  <div
+    className="card-background"
+    style={
+      Object {
+        "backgroundImage": "url(https://image.tmdb.org/t/p/w500path)",
+      }
+    }
+  >
+    <article
+      className="card-info"
+    >
+      <section
+        className="card-button-container"
+      >
+        <NavLink
+          className="card-button"
+          style={
+            Object {
+              "color": "grey",
+            }
+          }
+          to="/login"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className="favorite-icon"
+            fixedWidth={false}
+            flip={null}
+            icon="heart"
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size={null}
+            spin={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+        </NavLink>
+        <NavLink
+          className="card-button"
+          to={
+            Object {
+              "pathname": "/Movie/2",
+              "state": Object {
+                "movie": Object {
+                  "id": 2,
+                  "movie_id": 2,
+                  "overview": "overview-text",
+                  "poster_path": "path",
+                  "release_date": "2019",
+                  "title": "title-text",
+                  "vote_average": 1,
+                },
+              },
+            }
+          }
+        >
+          <FontAwesomeIcon
+            border={false}
+            className="more-info-icon"
+            fixedWidth={false}
+            flip={null}
+            icon="arrow-alt-circle-right"
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size={null}
+            spin={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+        </NavLink>
+      </section>
+    </article>
+  </div>
+</div>
+`;

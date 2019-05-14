@@ -1,26 +1,31 @@
-import React from 'react';
-import Nav from './Nav';
-import { shallow } from 'enzyme';
-import { Provider } from "react-redux";
-import configureMockStore from "redux-mock-store";
+import React from "react";
+import { Nav, mapStateToProps, mapDispatchToProps } from "./Nav";
+import {removeUser} from '../../Actions/'
+import { shallow } from "enzyme";
 
-const mockStore = configureMockStore();
-const store = mockStore({});
-
-describe('Nav', () => {
+describe("Nav", () => {
   let wrapper;
-
+  const mockProps = { user: { name: "max", id: 1 }, removeUser: jest.fn() };
   beforeEach(() => {
-    wrapper = shallow (
-      <Provider store={store}>
-    <Nav/>
-      </Provider>
-    )
+    wrapper = shallow(<Nav {...mockProps} />);
+  });
+
+  it("Nav component should match the snapshot", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+  it("should return a props object ", () => {
+    const mockState = { user: { name: "max", id: 1 }, removeUser: jest.fn() };
+    const expected = {
+      user: mockState.user,
+    };
+    const mappedProps = mapStateToProps(mockState);
+    expect(mappedProps).toEqual(expected);
+  });
+  it('should call dispatch when using a function from MDTP', () => {
+    const mockDispatch = jest.fn()
+    const actionToDispatch = removeUser({})
+    const mappedProps = mapDispatchToProps(mockDispatch)
+    mappedProps.removeUser({})
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
   })
-
-  it('Nav component should match the snapshot', () =>{
-    expect(wrapper).toMatchSnapshot()
-  })
-
-
-})
+});
