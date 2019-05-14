@@ -60,3 +60,20 @@ export const uncleanMovies =
       release_date: "1994-09-23",
       favorited: false
   }]
+
+  export const movieProp = {
+
+      location: {
+          state: {
+              movie: {
+                  id: 2341,
+                  title: "HellBoy",
+                  backdrop_path: "/5BkSkNtfrnT",
+                  favorited: false,
+                  overview: "walk on earth",
+                  poster_path: "/bk8LyaMqUtaQ9hUShuvFznQYQKR.jpg",
+                  release_date: "2019-04-12"
+              }
+          }
+      }
+  }

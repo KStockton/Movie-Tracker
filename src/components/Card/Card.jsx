@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 class Card extends Component {
   constructor(props) {
-    super(props);
+     super(props);
     this.state = {
 
     };
@@ -97,7 +97,7 @@ class Card extends Component {
                 <NavLink
                   to="/login"
                   className="card-button"
-                  style={{ backgroundColor: favorited ? "red" : "blue" }}
+                  style={{ backgroundColor: favorited ? "green" : "black" }}
                 >
                   Add to List
                 </NavLink>
@@ -106,7 +106,7 @@ class Card extends Component {
                   to="/"
                   className="card-button"
                   onClick={() => this.handleFavorite()}
-                  style={{ backgroundColor: favorited ? "red" : "blue" }}
+                  style={{ backgroundColor: favorited ? "green" : "black" }}
                 >
                   Add to List
                 </NavLink>

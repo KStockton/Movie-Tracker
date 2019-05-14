@@ -8,10 +8,10 @@ describe('CardContainer', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow (<CardContainer/>)
+    wrapper = shallow (<CardContainer topMovies={MD.cleanMovies}/>)
   })
 
-  it.skip('CardContainer component should match the snapshot', () =>{
+  it('CardContainer component should match the snapshot', () =>{
     expect(wrapper).toMatchSnapshot()
   })
 

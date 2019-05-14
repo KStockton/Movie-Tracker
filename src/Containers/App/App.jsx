@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import UserSignIn from "../UserSignIn/UserSignIn";
 import { connect } from "react-redux";
 import Nav from '../Nav/Nav'
-import {Movie} from '../../Components/Movie/Movie';
+import { Movie } from '../../Components/Movie/Movie';
 
 
 class App extends React.Component {

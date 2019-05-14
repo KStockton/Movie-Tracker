@@ -15,11 +15,14 @@ describe('Home', () => {
     <Provider store={store}>
       <Home/>
     </Provider>
-    )
+    ).shallow()
   })
 
   it('Home component should match the snapshot', () =>{
     expect(wrapper).toMatchSnapshot()
+  })
+
+  it.skip('should call getTopMovies on componentDidMount', () => {
   })
 
 
