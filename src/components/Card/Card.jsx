@@ -1,15 +1,18 @@
-import React from "react";
+import React, { Component} from "react";
 import { postUsers } from "../../Utility/Fetches/PostUsers";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { setUserFavorites } from "../../Actions/";
+import PropTypes from 'prop-types';
 
 
-class Card extends React.Component {
+
+class Card extends Component {
   constructor(props) {
     super(props);
+    this.state = {
 
-    this.state = {};
+    };
   }
 
   handleFavorite = async () => {
@@ -122,6 +125,13 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setUserFavorites: user => dispatch(setUserFavorites(user))
 });
+
+Card.propTypes = {
+  movie: PropTypes.object,
+  user: PropTypes.object,
+  topMovies: PropTypes.array,
+  setUserFavorites: PropTypes.func
+}
 
 export default connect(
   mapStateToProps,
