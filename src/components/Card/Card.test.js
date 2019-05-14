@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from './Nav';
+import Card from './Card';
 import { shallow } from 'enzyme';
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
@@ -7,18 +7,18 @@ import configureMockStore from "redux-mock-store";
 const mockStore = configureMockStore();
 const store = mockStore({});
 
-describe('Nav', () => {
+describe('Card', () => {
   let wrapper;
 
   beforeEach(() => {
     wrapper = shallow (
       <Provider store={store}>
-    <Nav/>
+         <Card/>
       </Provider>
     )
   })
 
-  it('Nav component should match the snapshot', () =>{
+  it('Card component should match the snapshot', () =>{
     expect(wrapper).toMatchSnapshot()
   })
 

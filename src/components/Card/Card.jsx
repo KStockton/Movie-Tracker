@@ -1,18 +1,20 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 import { postUsers } from "../../Utility/Fetches/PostUsers";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { setUserFavorites } from "../../Actions";
+import { setUserFavorites } from "../../Actions/";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeart,
   faArrowAltCircleRight
 } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 library.add(faArrowAltCircleRight, faHeart);
 
-export class Card extends React.Component {
+
+class Card extends React.Component {
+
   handleFavorite = async () => {
     const { movie, user } = this.props;
     const {
@@ -61,6 +63,7 @@ export class Card extends React.Component {
 
   checkFavorite = () => {
     const favoriteIDs = this.getFavoriteIDs();
+    console.log(favoriteIDs)
     if (favoriteIDs.includes(this.props.movie.id)) {
       const displayMovie = { ...this.props.movie, favorited: true };
       return displayMovie;
@@ -102,9 +105,13 @@ export class Card extends React.Component {
                 <button
                   className="card-button"
                   onClick={() => this.handleFavorite()}
+
                   style={{ color: favorited ? "red" : "grey" }}
                 >
-                  <FontAwesomeIcon icon="heart" className="favorite-icon" />
+                  <FontAwesomeIcon
+                    icon="heart"
+                    className="favorite-icon"
+                  />
                 </button>
               )}
               <NavLink
@@ -126,11 +133,11 @@ export class Card extends React.Component {
     );
   }
 }
-export const mapStateToProps = state => ({
+const mapStateToProps = state => ({
   user: state.user,
   topMovies: state.topMovies
 });
-export const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   setUserFavorites: user => dispatch(setUserFavorites(user))
 });
 
@@ -139,7 +146,7 @@ Card.propTypes = {
   user: PropTypes.object,
   topMovies: PropTypes.array,
   setUserFavorites: PropTypes.func
-};
+}
 
 export default connect(
   mapStateToProps,

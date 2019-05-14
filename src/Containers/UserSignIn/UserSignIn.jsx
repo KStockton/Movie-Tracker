@@ -7,7 +7,7 @@ import NewUser from "./SignInForms/NewUser";
 import PropTypes from 'prop-types';
 
 
-export class UserSignIn extends Component {
+class UserSignIn extends Component {
   constructor(props) {
     super(props);
 
@@ -89,11 +89,11 @@ export class UserSignIn extends Component {
     );
   }
 }
-export const mapStateToProps = state => ({
+const mapStateToProps = state => ({
   user: state.user
 });
 
-export const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   addUser: user => dispatch(addUser(user))
 });
 

@@ -5,7 +5,7 @@ import { removeUser } from "../../Actions";
 import PropTypes from 'prop-types';
 
 
-export class Nav extends Component {
+class Nav extends Component {
   render() {
     return this.props.user.name === undefined ? (
       <nav>
@@ -62,10 +62,10 @@ export class Nav extends Component {
   }
 }
 
-export const mapStateToProps = state => ({
+const mapStateToProps = state => ({
   user: state.user
 });
- export const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   removeUser: user => dispatch(removeUser(user))
 });
 
