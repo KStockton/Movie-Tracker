@@ -4,12 +4,8 @@ import { addTopMovies } from "../../Actions/index";
 import CardContainer from "../../Components/CardContainer/CardContainer";
 
 export class Favorites extends Component {
-  componentDidMount() {}
 
   render() {
-    console.log(this.props.topMovies);
-    console.log(this.props.user.favorites);
-    console.log(this.props.user.name);
     return (
       <section className="home-container">
         <h2 className="home-title"> </h2>
