@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 
 
-export const Main = () => {
+const Main = () => {
     return (
       <main>
         <Home />

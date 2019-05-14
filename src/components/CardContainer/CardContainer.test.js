@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardContainer} from './CardContainer';
+import CardContainer from './CardContainer';
 import { shallow } from 'enzyme'
 import * as MD from '../../Utility/MockData/MockData'
 
@@ -18,10 +18,10 @@ describe('CardContainer', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<CardContainer user={mockUser} topMovies={MD.cleanMovies}/>)
+    wrapper = shallow (<CardContainer topMovies={MD.cleanMovies}/>)
   })
 
-  it('CardContainer component should match the snapshot', () => {
+  it('CardContainer component should match the snapshot', () =>{
     expect(wrapper).toMatchSnapshot()
   })
 
