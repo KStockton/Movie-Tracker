@@ -1,26 +1,15 @@
-import React from 'react';
-import UserSignin from './UserSignin';
-import { shallow } from 'enzyme';
-import { Provider } from "react-redux";
-import configureMockStore from "redux-mock-store";
+import React from "react";
+import { UserSignIn } from "./UserSignIn";
+import { shallow } from "enzyme";
 
-const mockStore = configureMockStore();
-const store = mockStore({});
-
-describe('UserSignin', () => {
+describe("UserSignin", () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow (
-      <Provider store={store}>
-        <UserSignin/>
-      </Provider>
-    )
-  })
+    wrapper = shallow(<UserSignIn />);
+  });
 
-  it('UserSignin component should match the snapshot', () =>{
-    expect(wrapper).toMatchSnapshot()
-  })
-
-
-})
+  it("UserSignIn component should match the snapshot", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+});
