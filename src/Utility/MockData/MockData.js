@@ -39,8 +39,8 @@ export const uncleanMovies =
       "release_date": "1994-09-23"
   }]
 
-  export const cleanMovies = [
-  {
+  export const cleanMovies = 
+  [{
      id: 19404,
      title: "Dilwale Dulhania Le Jayenge",
      backdrop_path: "/nl79FQ8xWZkhL3rDr1v2RFFR6J0.jpg",
