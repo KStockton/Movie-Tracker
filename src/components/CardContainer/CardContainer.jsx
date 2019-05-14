@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../Card/Card";
+import Card from "../../Containers/Card/Card";
 import PropTypes from 'prop-types';
 
 
@@ -19,7 +19,8 @@ const CardContainer = ({ topMovies, user }) => {
   );
 };
 
-CardContainer.protoTypes = {
+CardContainer.propTypes = {
+
   user: PropTypes.object,
   topMovies: PropTypes.array
 }

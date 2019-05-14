@@ -1,3 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Movie movie component should match the snapshot 1`] = `undefined`;
+exports[`Movie movie component should match the snapshot 1`] = `
+<article
+  className="movie-card"
+>
+  <div
+    className="movie-card-background"
+  >
+    <img
+      alt="backdrop"
+      src="https://image.tmdb.org/t/p/w1280/5BkSkNtfrnT"
+    />
+  </div>
+  <article
+    className="movie-card-container"
+  >
+    <section
+      className="movie-card-info"
+    >
+      <div>
+        <h4
+          className="movie-text"
+        >
+          HellBoy
+        </h4>
+        <br />
+        <div
+          className="movie-rating"
+        >
+          <span
+            className="vote-average"
+          >
+             Rating : 
+            NaN
+             %
+          </span>
+          <span
+            className="release-date"
+          >
+             
+            2019
+          </span>
+        </div>
+      </div>
+      <br />
+      <span>
+        Description: 
+      </span>
+      <br />
+      <p
+        className="movie-text movie-overview"
+      >
+        walk on earth
+      </p>
+    </section>
+    <section
+      className="movie-poster-path"
+    >
+      <img
+        alt="poster"
+        src="https://image.tmdb.org/t/p/w500/bk8LyaMqUtaQ9hUShuvFznQYQKR.jpg"
+      />
+    </section>
+  </article>
+  <NavLink
+    className="go-back-btn"
+    to="/"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className=""
+      fixedWidth={false}
+      flip={null}
+      icon="arrow-left"
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </NavLink>
+</article>
+`;

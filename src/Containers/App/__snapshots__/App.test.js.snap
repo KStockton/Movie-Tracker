@@ -1,3 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App App component should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`App App component should match the snapshot 1`] = `
+<div
+  className="App"
+>
+  <ConnectFunction />
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(UserSignIn)",
+          "type": [Function],
+        }
+      }
+      path="/login"
+    />
+    <Route
+      component={[Function]}
+      path="/movie/:id"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Favorites)",
+          "type": [Function],
+        }
+      }
+      path="/favorites"
+    />
+  </Switch>
+</div>
+`;

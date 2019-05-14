@@ -1,21 +1,16 @@
 import React from 'react';
-import {Movie} from './Movie';
-import { shallow , mount} from 'enzyme';
+import { Movie } from './Movie';
+import { shallow } from 'enzyme';
 import * as MD from '../../Utility/MockData/MockData'
-
-
-const mockMovieProp = MD.movieProp
 
 describe('Movie', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount (
-        <Movie movie={mockMovieProp}/>
-    )
+    wrapper = shallow(<Movie location={MD.movieProp}/>)
   })
 
-  it.skip('movie component should match the snapshot', () => {
+  it('movie component should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
 })
