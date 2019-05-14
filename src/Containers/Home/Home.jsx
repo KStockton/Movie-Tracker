@@ -10,14 +10,11 @@ class Home extends Component {
     super();
     this.state = {
       topMovies: [],
-      currentPage: 0,
       moviesArray: []
     };
   }
   async componentDidMount() {
-    const { currentPage } = this.state;
-    let incrementedPage = currentPage + 1;
-    let movies = await getTopMovies(APIkey, incrementedPage);
+    let movies = await getTopMovies(APIkey);
     this.props.addTopMovies(movies);
   }
 
@@ -44,9 +41,11 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-const mapDispatchToProps = dispatch => ({
-  addTopMovies: movies => dispatch(addTopMovies(movies))
-});
+const mapDispatchToProps = dispatch => (
+  {
+  addTopMovies: (movies )=> dispatch(addTopMovies(movies))
+}
+);
 
 export default connect(
   mapStateToProps,

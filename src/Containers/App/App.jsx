@@ -7,6 +7,7 @@ import Nav from "../Nav/Nav";
 import { Movie } from "../../Components/Movie/Movie";
 import Favorites from "../Favorites/Favorites.jsx";
 
+
 class App extends React.Component {
   render() {
     return (

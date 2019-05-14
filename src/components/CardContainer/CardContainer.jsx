@@ -1,5 +1,7 @@
 import React from "react";
 import Card from "../Card/Card";
+import PropTypes from 'prop-types';
+
 
 const CardContainer = ({ topMovies, user }) => {
 
@@ -16,5 +18,10 @@ const CardContainer = ({ topMovies, user }) => {
     </div>
   );
 };
+
+CardContainer.protoTypes = {
+  user: PropTypes.object,
+  topMovies: PropTypes.array
+}
 
 export default CardContainer;

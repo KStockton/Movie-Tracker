@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component} from "react";
 import { postUsers } from "../../Utility/Fetches/PostUsers";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
@@ -9,8 +9,9 @@ import {
   faHeart,
   faArrowAltCircleRight
 } from "@fortawesome/free-solid-svg-icons";
-
+import PropTypes from 'prop-types';
 library.add(faArrowAltCircleRight, faHeart);
+
 
 class Card extends React.Component {
 
@@ -104,6 +105,7 @@ class Card extends React.Component {
                 <button
                   className="card-button"
                   onClick={() => this.handleFavorite()}
+
                   style={{ color: favorited ? "red" : "grey" }}
                 >
                   <FontAwesomeIcon
@@ -138,6 +140,13 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setUserFavorites: user => dispatch(setUserFavorites(user))
 });
+
+Card.propTypes = {
+  movie: PropTypes.object,
+  user: PropTypes.object,
+  topMovies: PropTypes.array,
+  setUserFavorites: PropTypes.func
+}
 
 export default connect(
   mapStateToProps,
