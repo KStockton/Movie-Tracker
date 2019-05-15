@@ -37,5 +37,6 @@ This project was built with the following
 
 ## Contributors
 
-```Max Silver and Michael King-Stockton @KStockton
+```
+Max Silver and Michael King-Stockton @KStockton
 ```
