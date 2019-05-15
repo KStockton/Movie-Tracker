@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Card, mapStateToProps, mapDispatchToProps } from "./Card";
 import { shallow } from "enzyme";
@@ -18,6 +19,8 @@ import { postUsers } from '../../Utility/Fetches/PostUsers';
     title: "title-text"
   };
   beforeEach(() => {
+
+
     wrapper = shallow(<Card user={mockUser} movie={mockMovie} />);
   });
 

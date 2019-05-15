@@ -36,12 +36,12 @@ export class Home extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   topMovies: state.topMovies,
   user: state.user
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   addTopMovies: movies => dispatch(addTopMovies(movies))
 });
 
