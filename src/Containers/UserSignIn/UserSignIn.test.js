@@ -1,13 +1,28 @@
 import React from "react";
 import { UserSignIn, mapStateToProps, mapDispatchToProps } from "./UserSignIn";
 import { shallow } from "enzyme";
+import { postUsers } from '../../Utility/Fetches/PostUsers';
 import { addUser } from "../../Actions/";
-
+jest.mock('../../Utility/Fetches/PostUsers')
 describe("UserSignin", () => {
   let wrapper;
-  const mockUser = { name: 'max silver', email: "maxsilver@gmail.com", password: "1", newUserBool: true}
+  const mockedEvent = { target: { value: "mockName", name: "name" } };
+  const mockNewUser = {
+    name: "max silver",
+    email: "maxsilver@gmail.com",
+    password: "1",
+    newUserBool: true
+  };
+  const mockExistingUser = {
+    name: "max silver",
+    email: "maxsilver@gmail.com",
+    password: "1",
+    newUserBool: false
+  };
+
   beforeEach(() => {
-    wrapper = shallow(<UserSignIn {...mockUser}/>);
+    wrapper = shallow(<UserSignIn />);
+    wrapper.setState({ ...mockNewUser });
   });
 
   it("UserSignIn component should match the snapshot", () => {
@@ -29,13 +44,44 @@ describe("UserSignin", () => {
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
   describe("handleLogin", () => {
-    it.skip('should invoke userCreation when newUserBool is true', () => {
+    it("should invoke userCreation when newUserBool is true", () => {
+      wrapper.instance().userCreation = jest.fn();
       wrapper.instance().handleLogin({ preventDefault: () => {} });
+      expect(wrapper.instance().userCreation).toHaveBeenCalledWith(
+        "maxsilver@gmail.com",
+        "max silver",
+        "1"
+      );
+    });
+
+    it("should invoke userCreation when newUserBool is false", () => {
+      wrapper.setState({ ...mockExistingUser });
       wrapper.instance().userSignIn = jest.fn();
-      expect(wrapper.instance().userSignIn).toHaveBeenCalled()
-      // wrapper.find("form").simulate("submit", { preventDefault: () => {} });
-      // expect(mockDetermineQuestion).toHaveBeenCalled();
-      // expect(mockIncrementRound).toHaveBeenCalled();
-    })
+      wrapper.instance().handleLogin({ preventDefault: () => {} });
+      expect(wrapper.instance().userSignIn).toHaveBeenCalled();
+    });
+  });
+  describe("handleChange", () => {
+    it("should handleChange", () => {
+      wrapper = shallow(<UserSignIn />);
+      wrapper.setState({ ...mockNewUser });
+      expect(wrapper.state("name")).toEqual("max silver");
+
+      wrapper.instance().handleChange(mockedEvent);
+      expect(wrapper.state("name")).toEqual("mockName");
+    });
+  });
+  describe("handleToggleForm", () => {
+    it("should toggle newUserBool", () => {
+      expect(wrapper.state("newUserBool")).toEqual(true);
+      wrapper.instance().handleToggleForm({ preventDefault: () => {} });
+      expect(wrapper.state("newUserBool")).toEqual(false);
+    });
+  });
+  describe("userCreation", () => {
+    it("", () => {
+      wrapper.instance().userCreation();
+      expect(postUsers).toHaveBeenCalled()
+    });
   });
 });

@@ -9,7 +9,7 @@ import { postUsers } from '../../Utility/Fetches/PostUsers';
   jest.mock('../../Utility/Fetches/PostUsers');
 
    const mockUser = { favorites: [{ id: 1, movie_id: 1 }] };
-  const mockMovie = {
+  const mockMovie = {   
     id: 2,
     movie_id: 2,
     overview: "overview-text",

@@ -14,6 +14,10 @@ describe('Home', () => {
   it('Home component should match the snapshot', () =>{
     expect(wrapper).toMatchSnapshot()
   })
+  it('should have a default state', () => {
+    expect(wrapper.state('topMovies')).toEqual([])
+    expect(wrapper.state('moviesArray')).toEqual([])
+  })
 
 
 

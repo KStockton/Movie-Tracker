@@ -14,7 +14,6 @@ library.add(faArrowAltCircleRight, faHeart);
 
 
 export class Card extends Component {
-  
   handleFavorite = async () => {
     const { movie, user } = this.props;
     const {
