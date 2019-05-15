@@ -7,7 +7,6 @@ export class Favorites extends Component {
   
 
   render() {
-    console.log('prop', this.props.user.name)
     return (
       <section className="home-container">
         <h2 className="home-title"> </h2>
