@@ -96,3 +96,14 @@ export const uncleanMovies =
 
 
 
+export const mockUniqueMovie = [{
+  data: {
+        movie_id: 2341,
+        user_id: 51,
+        title: "HellBoy",
+        poster_path: "/5BkSkNtfrnT",
+        vote_average: 1.4,
+        release_date: "2019-04-12",
+        overview: "walk on earth"
+}
+}]

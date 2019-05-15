@@ -12,6 +12,7 @@ describe("Main", () => {
   it("Main component should match the snapshot", () => {
     expect(wrapper).toMatchSnapshot();
   });
+  
   it("should return a props object ", () => {
     const mockState = { user: { name: "max", id: 1 }, removeUser: jest.fn() };
     const expected = {
@@ -20,4 +21,6 @@ describe("Main", () => {
     const mappedProps = mapStateToProps(mockState);
     expect(mappedProps).toEqual(expected);
   });
+
+
 });

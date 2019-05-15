@@ -22,6 +22,7 @@ export const SignInUser = (props) => {
             onChange={props.handleChange}
             value={props.email}
             className="user-input"
+            id="emails"
           />
         </div>
         <div className="input-container">
