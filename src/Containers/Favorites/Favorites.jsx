@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addTopMovies } from "../../Actions/index";
 import CardContainer from "../../Components/CardContainer/CardContainer";
-
+import PropTypes from 'prop-types'
 export class Favorites extends Component {
+  
 
   render() {
     return (
@@ -25,14 +26,20 @@ export class Favorites extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   topMovies: state.topMovies,
   user: state.user
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   addTopMovies: movies => dispatch(addTopMovies(movies))
 });
+
+Favorites.propTypes = {
+  topMovies: PropTypes.array,
+  user: PropTypes.object,
+  addTopMovies: PropTypes.func
+}
 
 export default connect(
   mapStateToProps,

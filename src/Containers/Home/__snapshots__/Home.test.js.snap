@@ -34,6 +34,27 @@ exports[`Home Home component should match the snapshot 1`] = `
         },
       ]
     }
+    user={
+      Object {
+        "email": "weOn@gmail",
+        "favorites": Object {
+          "state": Object {
+            "movie": Object {
+              "backdrop_path": "/5BkSkNtfrnT",
+              "favorited": false,
+              "id": 2341,
+              "overview": "walk on earth",
+              "poster_path": "/bk8LyaMqUtaQ9hUShuvFznQYQKR.jpg",
+              "release_date": "2019-04-12",
+              "title": "HellBoy",
+            },
+          },
+        },
+        "id": 3,
+        "name": "Will",
+        "password": "nimawesome",
+      }
+    }
   />
 </section>
 `;

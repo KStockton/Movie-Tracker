@@ -83,3 +83,27 @@ export const uncleanMovies =
     name: "Will",
     password: "nimawesome"
   }
+
+
+  export const mockUserWithFav = {
+    id: 3,
+    email: "weOn@gmail",
+    favorites: 
+     cleanMovies ,
+    name: "Will",
+    password: "nimawesome"
+  }
+
+
+
+export const mockUniqueMovie = [{
+  data: {
+        movie_id: 2341,
+        user_id: 51,
+        title: "HellBoy",
+        poster_path: "/5BkSkNtfrnT",
+        vote_average: 1.4,
+        release_date: "2019-04-12",
+        overview: "walk on earth"
+}
+}]
