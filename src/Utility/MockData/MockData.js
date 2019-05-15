@@ -74,3 +74,12 @@ export const uncleanMovies =
       }
     }
   }
+
+  export const mockUser = {
+    id: 3,
+    email: "weOn@gmail",
+    favorites: 
+     movieProp ,
+    name: "Will",
+    password: "nimawesome"
+  }

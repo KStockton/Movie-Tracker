@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 library.add(faArrowLeft)
 
 export const Movie = props => {
-  console.log(props)
+
   const {
     overview,
     backdrop_path,
