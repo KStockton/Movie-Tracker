@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UserSignin UserSignIn component should match the snapshot 1`] = `
-<SignInUser
-  email=""
+<NewUser
+  email="maxsilver@gmail.com"
   handleChange={[Function]}
   handleLogin={[Function]}
   handleToggleForm={[Function]}
-  name=""
-  newUserBool={false}
-  password=""
+  name="max silver"
+  newUserBool={true}
+  password="1"
   status=""
   user={
     Object {

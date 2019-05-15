@@ -13,7 +13,17 @@ const setFavoritesmock =jest.fn()
   let wrapper;
   jest.mock('../../Utility/Fetches/PostUsers');
 
-  
+   const mockUser = { favorites: [{ id: 1, movie_id: 1 }] };
+  const mockMovie = {   
+    id: 2,
+    movie_id: 2,
+    overview: "overview-text",
+    vote_average: 1,
+    release_date: "2019",
+    poster_path: "path",
+    title: "title-text"
+  };
+
   beforeEach(() => {
     wrapper = shallow(<Card user={MD.mockUserWithFav} movie={MD.cleanMovies} />);
   }); 

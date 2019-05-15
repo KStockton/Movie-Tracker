@@ -47,13 +47,20 @@ export class UserSignIn extends Component {
   userCreation = async (email, name, password) => {
     const url = "users/new";
     try {
-      const response = await postUsers(url, "POST", { name, password, email });
+      const response = await postUsers(url, "POST", {
+        name,
+        password,
+        email
+      });
       if (response.error !== undefined) {
         this.setState({ status: "That email is already in use!" });
       } else {
+
         this.setState({ newUserBool: false });
       }
-    } catch (e) {}
+    } catch (e) {
+      console.log(e)
+    }
   };
 
   handleChange = e => {
