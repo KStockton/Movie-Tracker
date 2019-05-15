@@ -1,3 +1,4 @@
+
 # Welcome to Movie-Tracker
 
 ## The Goals and Objectives of this project is as below:
@@ -30,3 +31,7 @@ This project was built with the following
 - Enzyme
 
 ## Screenshot
+<img width="1663" alt="Screen Shot 2019-05-15 at 3 21 04 AM" src="https://user-images.githubusercontent.com/34406483/57764645-171c3100-76c1-11e9-9f26-3b57d5ad5c8f.png">
+<img width="1663" alt="Screen Shot 2019-05-15 at 3 20 32 AM" src="https://user-images.githubusercontent.com/34406483/57764672-24d1b680-76c1-11e9-8534-27f86038902f.png">
+<img width="1663" alt="Screen Shot 2019-05-15 at 3 21 04 AM" src="https://user-images.githubusercontent.com/34406483/57764688-2bf8c480-76c1-11e9-97fe-e3d3aa0ab71d.png">
+<img width="1663" alt="Screen Shot 2019-05-15 at 3 21 38 AM" src="https://user-images.githubusercontent.com/34406483/57764694-2ef3b500-76c1-11e9-82ae-959eb71038e4.png">
