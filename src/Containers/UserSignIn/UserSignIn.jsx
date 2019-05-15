@@ -19,7 +19,6 @@ export class UserSignIn extends Component {
       status: ""
     };
   }
-
   handleLogin = async e => {
     e.preventDefault();
     const { name, email, password, newUserBool } = this.state;
