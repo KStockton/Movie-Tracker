@@ -1,40 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Nav Nav component should match the snapshot 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "clear": [Function],
-          "get": [Function],
-          "notify": [Function],
-          "subscribe": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": [Function],
-      },
-    }
-  }
->
-  <ConnectFunction />
-</ContextProvider>
+<nav>
+  <ul>
+    <div
+      className="main-nav-container"
+    >
+      <h1
+        className="nav-title"
+      >
+        Movie Tracker
+      </h1>
+      <li>
+        <NavLink
+          className="nav-link"
+          to="/"
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className="nav-link"
+          to="/favorites"
+        >
+          Favorites
+        </NavLink>
+      </li>
+    </div>
+    <section
+      className="sign-in-container"
+    />
+    <li
+      className="nav-signed-in-container"
+    >
+      <span
+        className="nav-signed-in-user"
+      >
+        Signed in as:
+         
+        <span
+          className="nav-user-name"
+        >
+          max
+           
+        </span>
+      </span>
+      <button
+        className="nav-title signout-button"
+        onClick={[Function]}
+      >
+        Sign Out
+      </button>
+    </li>
+  </ul>
+</nav>
 `;

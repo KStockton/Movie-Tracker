@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 
 
-const Main = () => {
+export const Main = () => {
     return (
       <main>
         <Home />
@@ -12,7 +12,7 @@ const Main = () => {
     );
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   user: state.user
 });
 

@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import { postUsers } from "../../Utility/Fetches/PostUsers";
 import { addUser } from "../../Actions/index";
 import { connect } from "react-redux";
-import {SignInUser} from "./SignInForms/SignInUser";
+import { SignInUser } from "./SignInForms/SignInUser";
 import NewUser from "./SignInForms/NewUser";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-
-class UserSignIn extends Component {
+export class UserSignIn extends Component {
   constructor(props) {
     super(props);
 
@@ -16,11 +15,10 @@ class UserSignIn extends Component {
       password: "",
       name: "",
       newUserBool: false,
-      user: {favorites: []},
+      user: { favorites: [] },
       status: ""
     };
   }
-
   handleLogin = async e => {
     e.preventDefault();
     const { name, email, password, newUserBool } = this.state;
@@ -30,23 +28,22 @@ class UserSignIn extends Component {
       return await this.userSignIn(email, password);
     }
   };
-  
+
   userSignIn = async (email, password) => {
     const url = "users";
     try {
       const userResponse = await postUsers(url, "POST", { password, email });
       const { data } = userResponse;
-      const checkFavePath = `users/${data.id}/favorites`
-      let faves = await postUsers(checkFavePath, "GET")
+      const checkFavePath = `users/${data.id}/favorites`;
+      let faves = await postUsers(checkFavePath, "GET");
       this.props.addUser(data);
-      this.props.user.favorites = faves.data
+      this.props.user.favorites = faves.data;
       this.setState({ status: "Successful" });
     } catch (e) {
       this.setState({ status: "The username or password is incorrect!" });
     }
   };
 
-  
   userCreation = async (email, name, password) => {
     const url = "users/new";
     try {
@@ -59,10 +56,9 @@ class UserSignIn extends Component {
     } catch (e) {}
   };
 
-
   handleChange = e => {
     const { value, name } = e.target;
-    this.setState({ [name]: value, status: '' });
+    this.setState({ [name]: value, status: "" });
   };
 
   handleToggleForm = e => {
@@ -89,18 +85,18 @@ class UserSignIn extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   user: state.user
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   addUser: user => dispatch(addUser(user))
 });
 
 UserSignIn.propTypes = {
   addUser: PropTypes.func,
   user: PropTypes.object
-}
+};
 
 export default connect(
   mapStateToProps,
