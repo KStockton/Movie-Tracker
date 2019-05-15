@@ -16,4 +16,8 @@ describe('CardContainer', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-})
+  it.skip('should render 3 card components', () => {
+    expect(wrapper.find('ConnectionFunction')).toHaveLength(2)
+  })
+
+}) 

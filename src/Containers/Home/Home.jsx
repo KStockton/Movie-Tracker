@@ -9,8 +9,7 @@ export class Home extends Component {
   constructor() {
     super();
     this.state = {
-      topMovies: [],
-      moviesArray: []
+      topMovies: []
     };
   }
   async componentDidMount() {
