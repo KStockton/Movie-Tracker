@@ -17,22 +17,14 @@ export class Card extends Component {
   
   handleFavorite = async () => {
     const { movie, user } = this.props;
-    const {
-      id,
-      overview,
-      vote_average,
-      release_date,
-      poster_path,
-      title
-    } = movie;
     const userFavInfo = {
-      movie_id: id,
+      movie_id: movie.id,
       user_id: user.id,
-      title: title,
-      poster_path: poster_path,
-      vote_average: vote_average,
-      release_date: release_date,
-      overview: overview
+      title: movie.title,
+      poster_path: movie.poster_path,
+      vote_average: movie.vote_average,
+      release_date: movie.release_date,
+      overview: movie.overview
     };
 
     const uniqueMovie = this.props.user.favorites.filter(
@@ -104,6 +96,7 @@ export class Card extends Component {
               ) : (
                 <button
                   className="card-button"
+                  id="but"
                   onClick={() => this.handleFavorite()}
 
                   style={{ color: favorited ? "red" : "grey" }}
@@ -133,11 +126,11 @@ export class Card extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   user: state.user,
   topMovies: state.topMovies
 });
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   setUserFavorites: user => dispatch(setUserFavorites(user))
 });
 

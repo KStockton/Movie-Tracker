@@ -17,11 +17,7 @@ describe('Favorites', () => {
   })
 
   it('should return a props object with a movies array', () => {
-    const mockState = {
-      topMovies: [
-        {'title': "SpaceJam"}
-      ]
-    }
+    const mockState = { topMovies: [{ 'title': "SpaceJam" }]}
     const expected = {
       topMovies: mockState.topMovies
     }
@@ -38,10 +34,13 @@ describe('Favorites', () => {
         email: "nim@sum.com"
       }
     }
+
     const expected = {
       user: mockState.user
     }
+
     const mappedProps = mapStateToProps(mockState)
+
     expect(mappedProps).toEqual(expected)
   })
 
@@ -51,16 +50,8 @@ describe('Favorites', () => {
 
     const mappedProps = mapDispatchToProps(mockDispatch)
     mappedProps.addTopMovies(MD.cleanMovies)
+    
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
   })
-
-  // it('should call dispatch when using a function from MDTP', () => {
-  //   const mockDispatch = jest.fn()
-  //   const actionToDispatch = addTodo('Learn Redux', 1)
-
-  //   const mappedProps = mapDispatchToProps(mockDispatch)
-  //   mappedProps.handleSubmit('Learn Redux', 1)
-  //   expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
-  // })
 
 })

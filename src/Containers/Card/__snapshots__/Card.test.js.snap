@@ -18,14 +18,15 @@ exports[`Card Card component should match the snapshot 1`] = `
       <section
         className="card-button-container"
       >
-        <NavLink
+        <button
           className="card-button"
+          id="but"
+          onClick={[Function]}
           style={
             Object {
-              "color": "grey",
+              "color": "red",
             }
           }
-          to="/login"
         >
           <FontAwesomeIcon
             border={false}
@@ -45,7 +46,7 @@ exports[`Card Card component should match the snapshot 1`] = `
             title=""
             transform={null}
           />
-        </NavLink>
+        </button>
         <NavLink
           className="card-button"
           to={
