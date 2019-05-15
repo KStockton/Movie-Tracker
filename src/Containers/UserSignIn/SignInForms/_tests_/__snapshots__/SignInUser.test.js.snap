@@ -26,7 +26,6 @@ exports[`NewUser NewUser component should match the snapshot 1`] = `
     >
       <input
         className="user-input"
-        id="emails"
         name="email"
         onChange="cool"
         placeholder="Email..."
