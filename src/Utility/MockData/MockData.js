@@ -83,3 +83,16 @@ export const uncleanMovies =
     name: "Will",
     password: "nimawesome"
   }
+
+
+  export const mockUserWithFav = {
+    id: 3,
+    email: "weOn@gmail",
+    favorites: 
+     cleanMovies ,
+    name: "Will",
+    password: "nimawesome"
+  }
+
+
+

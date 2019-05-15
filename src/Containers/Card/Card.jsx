@@ -142,7 +142,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 Card.propTypes = {
-  movie: PropTypes.object,
+  movie: PropTypes.array,
   user: PropTypes.object,
   topMovies: PropTypes.array,
   setUserFavorites: PropTypes.func
