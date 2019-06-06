@@ -6,7 +6,7 @@ Movie Tracker is a web application built for anyone that would like to save thei
 
 ## Installing / Lets Get Started
 ```bash
-git clone [remote-address] [what you want to name the repo]
+git clone [https://github.com/KStockton/Movie-Tracker] [what you want to name the repo]
 ```
 
 Once you have cloned the repo, install the library dependencies. Run:
@@ -15,7 +15,7 @@ Once you have cloned the repo, install the library dependencies. Run:
 npm install
 npm start
 ```
-Open http://localhost:8080/
+Open http://localhost:3000/
 
 ### Built With
 This project was built with the following
