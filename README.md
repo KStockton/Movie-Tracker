@@ -11,7 +11,6 @@ git clone [https://github.com/KStockton/Movie-Tracker] [what you want to name th
 You will also need to run the back end server, found at:
 
 ```clone the backend repo https://github.com/turingschool-examples/movie-tracker```
-follow instructions in the repo
 
 start backend first(local 3000) before starting frontend ui(local 3001)
 
