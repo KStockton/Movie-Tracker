@@ -8,6 +8,10 @@ Movie Tracker is a web application built for anyone that would like to save thei
 ```bash
 git clone [https://github.com/KStockton/Movie-Tracker] [what you want to name the repo]
 ```
+You will also need to run the back end server, found at:
+clone the backend repo https://github.com/turingschool-examples/movie-tracker
+follow instructions in the repo
+start backend first(local 3000) before starting frontend ui(local 3001)
 
 Once you have cloned the repo, install the library dependencies. Run:
 
@@ -17,6 +21,8 @@ npm start
 ```
 Open http://localhost:3000/
 
+
+
 ### Built With
 This project was built with the following
 - HTML
@@ -25,6 +31,7 @@ This project was built with the following
 - React & JSX
 - The fetch Api
 - Postgres
+- Router
 
 ### Tested With
 - Jest
