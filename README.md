@@ -44,9 +44,8 @@ This project was built with the following
 <img width="1663" alt="Screen Shot 2019-05-15 at 3 20 32 AM" src="https://user-images.githubusercontent.com/34406483/57764672-24d1b680-76c1-11e9-8534-27f86038902f.png">
 <img width="1663" alt="Screen Shot 2019-05-15 at 3 21 38 AM" src="https://user-images.githubusercontent.com/34406483/57764694-2ef3b500-76c1-11e9-82ae-959eb71038e4.png">
 
-## Contributors
+### Contributors
 
-```
 [Michael King-Stockton](https://github.com/KStockton?tab=repositories)
 [Max Silver](https://github.com/MaxBSilver)
-```
+
