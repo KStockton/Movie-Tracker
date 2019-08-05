@@ -1,8 +1,10 @@
 
-# Welcome to Movie-Tracker
+# Movie-Tracker Featuring the MovieDB API
 
-## The Goals and Objectives of this project is as below:
-Movie Tracker is a web application built for anyone that would like to save their favorite new releases. You can get started by creating an account. You can also see your favorites in the nav link as well as view more movie info.
+### Goals and Objectives:
+The goal of this project was to create an application where a user could sign in and out while savinig their favorit movies.
+Also this was our first project using React Router and Redux. 
+
 
 ## Installing / Lets Get Started
 ```bash
