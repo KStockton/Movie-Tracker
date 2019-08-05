@@ -46,6 +46,6 @@ This project was built with the following
 
 ### Contributors
 
-[Michael King-Stockton](https://github.com/KStockton?tab=repositories)
-[Max Silver](https://github.com/MaxBSilver)
+* [Michael King-Stockton](https://github.com/KStockton?tab=repositories)
+* [Max Silver](https://github.com/MaxBSilver)
 
