@@ -1,6 +1,6 @@
-import React from 'react';
+import React from './node_modules/react';
 import { Movie } from './Movie';
-import { shallow } from 'enzyme';
+import { shallow } from './node_modules/enzyme';
 import * as MD from '../../Utility/MockData/MockData'
 
 describe('Movie', () => {

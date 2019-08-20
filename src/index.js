@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./Sass/index.scss";
-import App from "./Containers/App/App.jsx";
+import App from "./Containers/App/App.js";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
