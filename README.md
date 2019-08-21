@@ -2,8 +2,8 @@
 # Movie-Tracker Featuring the MovieDB API
 
 ### Goals and Objectives:
-The goal of this project was to create an application where a user could sign in and out while savinig their favorit movies.
-Also this was our first project using React Router and Redux. 
+The goal of this project was to create an application where a user could sign in and out while savinig their favorite movies. This project was created using React.js, React Router and Redux.
+
 
 
 ## Installing / Lets Get Started
