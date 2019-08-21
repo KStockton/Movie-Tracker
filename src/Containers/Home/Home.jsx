@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { APIkey } from "../../Utility/Config/Key";
 import { getTopMovies } from "../../Utility/Helpers/GetTopMovies";
 import { connect } from "react-redux";
 import { addTopMovies } from "../../Actions/index";
@@ -13,7 +12,7 @@ export class Home extends Component {
     };
   }
   async componentDidMount() {
-    let movies = await getTopMovies(APIkey);
+    let movies = await getTopMovies(process.env.REACT_API_MOVIEDB);
     this.props.addTopMovies(movies);
   }
 
