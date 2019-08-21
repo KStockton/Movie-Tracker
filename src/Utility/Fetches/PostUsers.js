@@ -5,7 +5,7 @@ const fetchConfig = (method, body) => ({
 });
 const postUsers = async (url, method, body) => {
   const response = await fetch(
-    `http://localhost:3000/api/${url}`,
+    `https://movie-tracker-fe.herokuapp.com/${url}`,
     fetchConfig(method, body)
   );
   const result = await response.json();
