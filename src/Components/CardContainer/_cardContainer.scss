@@ -1,0 +1,21 @@
+.card-container-wrapper {
+  height: 90%;
+}
+.core-card-container {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+}
+.main-card-container {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items:center;
+}
+.main-card-backdrop {
+  height: 100%;
+  width: 50%;
+  background-size: contain;
+  background-repeat: no-repeat
+}
