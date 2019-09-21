@@ -12,7 +12,7 @@ export class Home extends Component {
     };
   }
   async componentDidMount() {
-    let movies = await getTopMovies(process.env.REACT_API_MOVIEDB);
+    let movies = await getTopMovies();
     this.props.addTopMovies(movies);
   }
 
